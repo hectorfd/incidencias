@@ -25,7 +25,7 @@ class UserFactory extends Factory
             'address'=>$this->faker->address(),
             'estado'=>$this->faker->randomElement(['activo','inactivo']),
             'phone'=>$this->faker->tollFreePhoneNumber(),
-            'role'=>$this->faker->randomElement(['usuario','empleado']),
+            'role'=>$this->faker->randomElement(['cliente','empleado']),
 
         ];
     }

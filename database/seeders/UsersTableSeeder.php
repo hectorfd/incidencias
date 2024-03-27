@@ -42,12 +42,12 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'dni'=>'73369445',
             'estado'=>'activo',
-            'role'=>'usuario',
+            'role'=>'cliente',
        ]);
 
        User::factory()
        ->count(50)
-       ->state(['role'=>'usuario'])
+       ->state(['role'=>'cliente'])
        ->create();
     }
 }
