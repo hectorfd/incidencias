@@ -33,4 +33,4 @@ Route::put('/departamentos/{department}', [App\Http\Controllers\DepartmentContro
 Route::delete('/departamentos/{department}', [App\Http\Controllers\DepartmentController::class, 'destroy']);
 
 //Empleados
-Route::resource('employees', App\Http\Controllers\EmployeeController::class);
+Route::resource('empleados', App\Http\Controllers\EmployeeController::class);

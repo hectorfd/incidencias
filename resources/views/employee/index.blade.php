@@ -8,7 +8,7 @@
                     <h3 class="mb-0">Empleados</h3>
                 </div>
                 <div class="col text-right">
-                    <a href="{{url('/especialidades/create')}}" class="btn btn-sm btn-primary">Nuevo Empleado</a>
+                    <a href="{{url('/empleados/create')}}" class="btn btn-sm btn-primary">Nuevo Empleado</a>
                 </div>
             </div>
         </div>
