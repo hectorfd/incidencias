@@ -12,44 +12,49 @@
           <i class="ni ni-tv-2 text-teal"></i> Panel de control
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('especialidades') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('especialidades') ? 'active' : '' }}" href="{{ url('/especialidades') }}">
+    <li class="nav-item pb-2 {{ Request::is('facturas') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('facturas') ? 'active' : '' }}" href="{{ url('/facturas') }}">
           <i class="fas fa-credit-card text-cyan"></i> Facturas
       </a>
   </li>
-    <li class="nav-item pb-2 {{ Request::is('especialidades') ? 'active' : '' }}">
-        <a class="nav-link h {{ Request::is('especialidades') ? 'active' : '' }}" href="{{ url('/especialidades') }}">
-            <i class="fas fa-sitemap text-primary"></i> Áreas
+  <li class="nav-item pb-2 {{ Request::is('especialidades') ? 'active' : '' }}">
+    <a class="nav-link h {{ Request::is('especialidades') ? 'active' : '' }}" href="{{ url('/especialidades') }}">
+        <i class=" 	fas fa-graduation-cap text-danger"></i> Especialidad
+    </a>
+  </li>
+    <li class="nav-item pb-2 {{ Request::is('departamentos') ? 'active' : '' }}">
+        <a class="nav-link h {{ Request::is('departamentos') ? 'active' : '' }}" href="{{ url('/departamentos') }}">
+            <i class="fas fa-sitemap text-primary"></i> Departamentos
         </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('medicos') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('medicos') ? 'active' : '' }}" href="{{ url('/medicos') }}">
+    <li class="nav-item pb-2 {{ Request::is('empleados') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('empleados') ? 'active' : '' }}" href="{{ url('/empleados') }}">
         <i class="fas fa-id-card-alt text-info"></i>  Empleados
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('pacientes') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('pacientes') ? 'active' : '' }}" href="{{ url('/pacientes') }}">
-        <i class="ni ni-circle-08 text-warning"></i> Clientes
+    <li class="nav-item pb-2 {{ Request::is('clientes') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('clientes') ? 'active' : '' }}" href="{{ url('/clientes') }}">
+        <i class="ni ni-circle-08 text-orange"></i> Clientes
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('pacientes') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('pacientes') ? 'active' : '' }}" href="{{ url('/pacientes') }}">
+    <li class="nav-item pb-2 {{ Request::is('agendas') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('agendas') ? 'active' : '' }}" href="{{ url('/agendas') }}">
         <i class="fas fa-address-book text-pink"></i> Agenda
       </a>
     </li>
     
-    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+    <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
         <i class="fas fa-edit text-yellow"></i> Incidencias
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+    <li class="nav-item pb-2 {{ Request::is('equipos') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('equipos') ? 'active' : '' }}" href="{{ url('/equipos') }}">
         <i class="ni ni-laptop text-success"></i> Equipos
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+    <li class="nav-item pb-2 {{ Request::is('recursos') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('recursos') ? 'active' : '' }}" href="{{ url('/recursos') }}">
         <i class="fas fa-wrench text-ligth"></i> Recursos
       </a>
     </li>
@@ -60,13 +65,13 @@
         <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horario
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+    <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
         <i class="fas fa-clock text-info"></i> Incidencias
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('pacientes') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('pacientes') ? 'active' : '' }}" href="{{ url('/pacientes') }}">
+    <li class="nav-item pb-2 {{ Request::is('escalas') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('escalas') ? 'active' : '' }}" href="{{ url('/escalas') }}">
         <i class="fas fa-bed text-danger"></i> Escalas
       </a>
     </li>
@@ -77,8 +82,8 @@
         <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horario
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+    <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
         <i class="fas fa-clock text-info"></i> Reportar incidencias
       </a>
     </li>
@@ -100,8 +105,8 @@
   <h6 class="navbar-heading text-muted">Reportes</h6>
   <!-- Navigation -->
   <ul class="navbar-nav mb-md-3">
-    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="#">
+    <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="#">
         <i class="ni ni-books text-success"></i> Reporte incidencias
       </a>
     </li>

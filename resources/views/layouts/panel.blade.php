@@ -128,6 +128,7 @@
         <!-- Header -->
         <div class="header bg-image pb-8 pt-4 pt-md-6">
         </div>
+        
         <div class="container-fluid mt--7">
 
             @yield('content')
