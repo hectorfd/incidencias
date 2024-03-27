@@ -4127,7 +4127,7 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-  background-color: #5e72e4;
+  background-color: #FD0044;
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::after {

@@ -11,8 +11,8 @@
         <span>Configuración</span>
     </a>
     <a href="#" class="dropdown-item">
-        <i class="ni ni-calendar-grid-58"></i>
-        <span>Mis Citas</span>
+        <i class="fas fa-clock"></i>
+        <span>Incidencias</span>
     </a>
     <a href="#" class="dropdown-item">
         <i class="ni ni-support-16"></i>
