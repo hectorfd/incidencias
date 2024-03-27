@@ -14,7 +14,7 @@
     </li>
     <li class="nav-item pb-2 {{ Request::is('especialidades') ? 'active' : '' }}">
         <a class="nav-link h {{ Request::is('especialidades') ? 'active' : '' }}" href="{{ url('/especialidades') }}">
-            <i class="ni ni-briefcase-24 text-blue"></i> Categorias
+            <i class="ni ni-briefcase-24 text-blue"></i> Áreas
         </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('medicos') ? 'active' : '' }}">
@@ -24,11 +24,16 @@
     </li>
     <li class="nav-item pb-2 {{ Request::is('pacientes') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('pacientes') ? 'active' : '' }}" href="{{ url('/pacientes') }}">
-        <i class="fas fa-bed text-warning"></i> Áreas
+        <i class="fas fa-bed text-warning"></i> Usuarios
+      </a>
+    </li>
+    <li class="nav-item pb-2 {{ Request::is('pacientes') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('pacientes') ? 'active' : '' }}" href="{{ url('/pacientes') }}">
+        <i class="fas fa-bed text-warning"></i> Departamentos
       </a>
     </li>
 
-    @elseif(auth()->user()->role == 'doctor')
+    @elseif(auth()->user()->role == 'empleado')
     <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
         <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horario
@@ -36,12 +41,12 @@
     </li>
     <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
-        <i class="fas fa-clock text-info"></i> Mis incidencias
+        <i class="fas fa-clock text-info"></i> Incidencias
       </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('pacientes') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('pacientes') ? 'active' : '' }}" href="{{ url('/pacientes') }}">
-        <i class="fas fa-bed text-danger"></i> Mis escalas
+        <i class="fas fa-bed text-danger"></i> Escalas
       </a>
     </li>
 
@@ -53,7 +58,7 @@
     </li>
     <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
-        <i class="fas fa-clock text-info"></i> Registrar incidencias
+        <i class="fas fa-clock text-info"></i> Reportar incidencias
       </a>
     </li>
     @endif
