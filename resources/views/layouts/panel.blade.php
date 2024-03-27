@@ -20,7 +20,7 @@
 </head>
 
 <body class="">
-    <nav class="navbar navbar-vertical fixed-left navbar-expand-lg navbar-dark bg-default w-600 " id="sidenav-main">
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-lg navbar-dark bg-gradient-hector w-600 " id="sidenav-main">
         <div class="container-fluid p-2">
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
@@ -126,7 +126,7 @@
         </nav>
         <!-- End Navbar -->
         <!-- Header -->
-        <div class="header bg-gradient-info pb-8 pt-4 pt-md-6">
+        <div class="header bg-image pb-8 pt-4 pt-md-6">
         </div>
         <div class="container-fluid mt--7">
 

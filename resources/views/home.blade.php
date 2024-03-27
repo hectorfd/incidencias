@@ -1,25 +1,7 @@
 @extends('layouts.panel')
 
 @section('content')
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Panel de Control') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('¡Bienvenido de vuelta!') }}
-                </div>
-            </div>
-        </div> 
-    </div>
-</div> --}}
 
 <div class="row">
     <div class="col-md-12 mb-4">
@@ -39,7 +21,7 @@
     </div>
 
 
-    <div class="col-xl-8 mb-5 mb-xl-0">
+    {{-- <div class="col-xl-8 mb-5 mb-xl-0">
       <div class="card bg-gradient-default shadow">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
@@ -311,5 +293,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 @endsection

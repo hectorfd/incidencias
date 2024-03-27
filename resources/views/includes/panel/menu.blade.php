@@ -9,27 +9,48 @@
   @if(auth()->user()->role == 'admin')
     <li class="nav-item pb-2 {{ Request::is('home') ? 'active' : '' }}">
       <a class="nav-link  h {{ Request::is('home') ? 'active' : '' }}" href="{{ url('/home') }}">
-          <i class="ni ni-tv-2 text-danger"></i> Panel de control
+          <i class="ni ni-tv-2 text-teal"></i> Panel de control
       </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('especialidades') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('especialidades') ? 'active' : '' }}" href="{{ url('/especialidades') }}">
+          <i class="fas fa-credit-card text-cyan"></i> Facturas
+      </a>
+  </li>
+    <li class="nav-item pb-2 {{ Request::is('especialidades') ? 'active' : '' }}">
         <a class="nav-link h {{ Request::is('especialidades') ? 'active' : '' }}" href="{{ url('/especialidades') }}">
-            <i class="ni ni-briefcase-24 text-blue"></i> Áreas
+            <i class="fas fa-sitemap text-primary"></i> Áreas
         </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('medicos') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('medicos') ? 'active' : '' }}" href="{{ url('/medicos') }}">
-        <i class="fas fa-stethoscope text-info"></i>  Empleados
+        <i class="fas fa-id-card-alt text-info"></i>  Empleados
       </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('pacientes') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('pacientes') ? 'active' : '' }}" href="{{ url('/pacientes') }}">
-        <i class="fas fa-bed text-warning"></i> Usuarios
+        <i class="ni ni-circle-08 text-warning"></i> Clientes
       </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('pacientes') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('pacientes') ? 'active' : '' }}" href="{{ url('/pacientes') }}">
-        <i class="fas fa-bed text-warning"></i> Departamentos
+        <i class="fas fa-address-book text-pink"></i> Agenda
+      </a>
+    </li>
+    
+    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+        <i class="fas fa-edit text-yellow"></i> Incidencias
+      </a>
+    </li>
+    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+        <i class="ni ni-laptop text-success"></i> Equipos
+      </a>
+    </li>
+    <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="{{ url('/citas') }}">
+        <i class="fas fa-wrench text-ligth"></i> Recursos
       </a>
     </li>
 
@@ -81,7 +102,7 @@
   <ul class="navbar-nav mb-md-3">
     <li class="nav-item pb-2 {{ Request::is('citas') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('citas') ? 'active' : '' }}" href="#">
-        <i class="ni ni-books text-success"></i> incidencias
+        <i class="ni ni-books text-success"></i> Reporte incidencias
       </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('desempeño') ? 'active' : '' }}">
