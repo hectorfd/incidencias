@@ -35,4 +35,4 @@ Route::delete('/departamentos/{department}', [App\Http\Controllers\DepartmentCon
 //Empleados
 Route::resource('empleados', App\Http\Controllers\EmployeeController::class);
 //Clientes
-Route::resource('clientes', App\Http\Controllers\EmployeeController::class);
+Route::resource('clientes', App\Http\Controllers\CustomerController::class);
