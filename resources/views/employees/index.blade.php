@@ -27,9 +27,9 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col" class="d-none d-md-table-cell">Apellido</th>
-                        <th scope="col" class="d-none d-md-table-cell">Correo</th>
+                        <th scope="col" class="d-none d-xl-table-cell">Correo</th>
                         <th scope="col" class="d-none d-md-table-cell">DNI</th>
-                        <th scope="col" class="d-none d-md-table-cell">Dirección</th>
+                        
                         <th scope="col" class="d-none d-md-table-cell">Estado</th>
                         <th scope="col" class="d-none d-md-table-cell">Telefono</th>
                         <th scope="col">Opciones</th>
@@ -49,15 +49,13 @@
                         <th scope="row" class="d-none d-md-table-cell">
                             {{$empleado->lastName}}
                         </th>
-                        <th scope="row" class="d-none d-md-table-cell">
+                        <th scope="row" class="d-none d-xl-table-cell">
                             {{$empleado->email}}
                         </th>
                         <th scope="row" class="d-none d-md-table-cell">
                             {{$empleado->dni}}
                         </th>
-                        <th scope="row" class="d-none d-md-table-cell">
-                            {{$empleado->address}}
-                        </th>
+                        
                         <th scope="row" class="d-none d-md-table-cell">
                             {{$empleado->estado}}
                         </th>

@@ -15,7 +15,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = User::all();
-        return view('employee.index',compact('employees'));
+        return view('employees.index',compact('employees'));
     }
 
     /**
@@ -25,7 +25,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee.create');
+        return view('employees.create');
     }
 
     /**
