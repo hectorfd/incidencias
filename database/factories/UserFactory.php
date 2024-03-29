@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'dni'=>$this->faker->randomNumber(8,true),
             'address'=>$this->faker->address(),
-            'estado'=>$this->faker->randomElement(['activo','inactivo']),
+            'estado'=>$this->faker->randomElement(['activo']),
             'phone'=>$this->faker->tollFreePhoneNumber(),
             'role'=>$this->faker->randomElement(['cliente','empleado']),
 

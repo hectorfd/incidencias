@@ -1,6 +1,3 @@
-<?php 
-use Illuminate\Support\Str;
-?>
 @extends('layouts.panel')
 
 @section('content')
@@ -8,10 +5,10 @@ use Illuminate\Support\Str;
         <div class="card-header border-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="mb-0">Nuevo Empleado</h3>
+                    <h3 class="mb-0">Nuevo Cliente</h3>
                 </div>
                 <div class="col text-right">
-                    <a href="{{url('/empleados')}}" class="btn btn-sm btn-success">
+                    <a href="{{url('/clientes')}}" class="btn btn-sm btn-success">
                         <i class="fas fa-chevron-left"></i>
                         Regresar</a>
                 </div>
@@ -29,15 +26,15 @@ use Illuminate\Support\Str;
             @else
                 
             @endif
-            <form action="{{url('/empleados')}}" method="POST">
+            <form action="{{url('/clientes')}}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Nombre del Empleado</label>
+                    <label for="name">Nombre del Cliente</label>
                     <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="lastName">Apellido del Empleado</label>
+                    <label for="lastName">Apellido del Cliente</label>
                     <input type="text" name="lastName" class="form-control" value="{{old('lastName')}}">
                 </div>
 
@@ -57,7 +54,7 @@ use Illuminate\Support\Str;
                 </div>
 
                 <div class="form-group">
-                    <label for="estado">Estado del Empleado</label>
+                    <label for="estado">Estado del Cliente</label>
                     <input type="text" name="estado" class="form-control" value="{{old('estado')}}">
                 </div>
 
@@ -65,13 +62,8 @@ use Illuminate\Support\Str;
                     <label for="phone">Telefono/celular</label>
                     <input type="text" name="phone" class="form-control" value="{{old('phone')}}">
                 </div>
-
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="text" name="password" class="form-control" value="{{ old('password', Str::random(8)) }}">
-                </div>
                 
-                <button type="submit" class="btn btn-sm btn-primary">Crear Empleado</button>
+                <button type="submit" class="btn btn-sm btn-primary">Crear Cliente</button>
 
             </form>
         </div>
