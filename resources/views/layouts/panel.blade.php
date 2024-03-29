@@ -20,7 +20,7 @@
 </head>
 
 <body class="">
-    <nav class="navbar navbar-vertical fixed-left navbar-expand-lg navbar-dark bg-gradient-hector w-600 " id="sidenav-main">
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-lg navbar-dark bg-gradient-hector w-600" id="sidenav-main">
         <div class="container-fluid p-2">
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
@@ -39,13 +39,13 @@
                         aria-haspopup="true" aria-expanded="false">
                         <i class="ni ni-bell-55"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right"
+                    {{-- <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right"
                         aria-labelledby="navbar-default_dropdown_1">
                         <a class="dropdown-item" href="#">Action</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    </div> --}}
 
                 </li>
                 <li class="nav-item dropdown ">
@@ -88,11 +88,11 @@
     </nav>
     <div class="main-content">
         <!-- Navbar -->
-        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+        {{-- <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main"> --}}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-image2 z-index-3 py-3" id="navbar-main">
             <div class="container-fluid">
                 <!-- Brand -->
-                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="#">Panel de
-                    Control</a>
+                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="#">Panel de Control</a>
                 <!-- Form -->
                 <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
                     <div class="form-group mb-0">
@@ -126,7 +126,7 @@
         </nav>
         <!-- End Navbar -->
         <!-- Header -->
-        <div class="header bg-image pb-8 pt-4 pt-md-6">
+        <div class="header  pb-4 pt-4 pt-md-6">
         </div>
         
         <div class="container-fluid mt--7">
