@@ -114,8 +114,8 @@ class EmployeeController extends Controller
             'phone' => 'required',
         ];
         $messages = [
-            'name.required' => 'El nombre del médico es obligatorio',
-            'name.min' => 'El nombre del médico debe tener más de 3 caracteres',
+            'name.required' => 'El nombre del empleado es obligatorio',
+            'name.min' => 'El nombre del empleado debe tener más de 3 caracteres',
             'email.required' => 'El correo electrónico es obligatorio',
             'email.email' => 'Ingresa una dirección de correo electrónico válido',
             'dni.required' => 'El dni es obligatorio',

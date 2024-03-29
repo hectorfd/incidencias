@@ -1,3 +1,6 @@
+<?php 
+use Illuminate\Support\Str;
+?>
 @extends('layouts.panel')
 
 @section('content')
@@ -5,7 +8,7 @@
         <div class="card-header border-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="mb-0">Nuevo Cliente</h3>
+                    <h3 class="mb-0">Editar CLiente</h3>
                 </div>
                 <div class="col text-right">
                     <a href="{{url('/clientes')}}" class="btn btn-sm btn-success">
@@ -26,44 +29,51 @@
             @else
                 
             @endif
-            <form action="{{url('/clientes')}}" method="POST">
+            <form action="{{url('/clientes/'.$cliente->id)}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
-                    <label for="name">Nombre del Cliente</label>
-                    <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
+                    <label for="name">Nombre del Empleado</label>
+                    <input type="text" name="name" class="form-control" value="{{old('name',$cliente->name)}}">
                 </div>
 
                 <div class="form-group">
-                    <label for="lastName">Apellido del Cliente</label>
-                    <input type="text" name="lastName" class="form-control" value="{{old('lastName')}}">
+                    <label for="lastName">Apellido del Empleado</label>
+                    <input type="text" name="lastName" class="form-control" value="{{old('lastName',$cliente->lastName)}}">
                 </div>
 
                 <div class="form-group">
                     <label for="email">Correo electronico</label>
-                    <input type="text" name="email" class="form-control" value="{{old('email')}}">
+                    <input type="text" name="email" class="form-control" value="{{old('email',$cliente->email)}}">
                 </div>
 
                 <div class="form-group">
                     <label for="dni">Documento de Identidad</label>
-                    <input type="text" name="dni" class="form-control" value="{{old('dni')}}">
+                    <input type="text" name="dni" class="form-control" value="{{old('dni',$cliente->dni)}}">
                 </div>
 
                 <div class="form-group">
                     <label for="address">Dirección</label>
-                    <input type="text" name="address" class="form-control" value="{{old('address')}}">
+                    <input type="text" name="address" class="form-control" value="{{old('address',$cliente->address)}}">
                 </div>
 
                 <div class="form-group">
-                    <label for="estado">Estado del Cliente</label>
-                    <input type="text" name="estado" class="form-control" value="{{old('estado')}}">
+                    <label for="estado">Estado del Empleado</label>
+                    <input type="text" name="estado" class="form-control" value="{{old('estado',$cliente->estado)}}">
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Telefono/celular</label>
-                    <input type="text" name="phone" class="form-control" value="{{old('phone')}}">
+                    <input type="text" name="phone" class="form-control" value="{{old('phone',$cliente->phone)}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="text" name="password" class="form-control">
+                    <small class="text-warning">solo llena este campo si deseas cambiar la contraseña</small>
                 </div>
                 
-                <button type="submit" class="btn btn-sm btn-primary">Crear Cliente</button>
+                <button type="submit" class="btn btn-sm btn-primary">Guardar Cambios</button>
 
             </form>
         </div>
