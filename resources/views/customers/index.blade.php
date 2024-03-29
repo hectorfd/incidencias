@@ -69,10 +69,12 @@
                              
                                 @csrf
                                 @method( 'DELETE' )
-                                <a href="{{url('/clientes/'.$cliente->id.'/edit')}}" class="btn btn-sm btn-teal">Editar</a>
+                                <a href="{{url('/clientes/'.$cliente->id.'/edit')}}" class="btn btn-sm btn-outline-info">Editar</a>
                                 <button type="submit" href="" class="btn btn-sm btn-danger">Eliminar</button>
+                               
+
                             </form>
-                            
+                           
                         </td>
                        
                     </tr>
@@ -82,3 +84,6 @@
         </div>
     </div>
 @endsection
+
+
+

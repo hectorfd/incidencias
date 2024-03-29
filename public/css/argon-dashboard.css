@@ -82,6 +82,7 @@ main,
 nav,
 section {
   display: block;
+  
 }
 
 body {
@@ -636,6 +637,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  
 }
 
 .row {
@@ -3516,6 +3518,7 @@ input[type="button"].btn-block {
 
 .collapse:not(.show) {
   display: none;
+  
 }
 
 .collapsing {
@@ -4484,8 +4487,8 @@ input[type="button"].btn-block {
 .h:hover,
 .h:focus {
   text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.9);  
-  color: black !important;
+  background-color: rgba(255, 255, 255, 0.5);  
+  color: white !important;
   border-radius: 10px;
   padding: 10px;
 }
@@ -4576,7 +4579,7 @@ input[type="button"].btn-block {
   border-radius: 10px; 
   padding-left: 15px; 
   margin: 15px; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
   z-index: 900;
 }
 
@@ -4611,6 +4614,12 @@ input[type="button"].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  /* padding: 1rem 1rem;
+  border-radius: 10px; 
+  padding-left: 15px; 
+  margin: 15px; 
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  /* z-index: 900; */ 
   
 }
 
@@ -15641,6 +15650,7 @@ a.btn-icon-only {
 
 .main-content {
   position: relative;
+  
 }
 
 .main-content .navbar-top {

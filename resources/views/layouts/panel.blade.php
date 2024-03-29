@@ -20,7 +20,8 @@
 </head>
 
 <body class="">
-    <nav class="navbar navbar-vertical fixed-left navbar-expand-lg navbar-dark bg-gradient-hector w-600" id="sidenav-main">
+    
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-lg navbar-dark bg-gradient-hector " id="sidenav-main">
         <div class="container-fluid p-2">
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
@@ -62,7 +63,7 @@
                 </li>
             </ul>
             <!-- Collapse -->
-            <div class="collapse navbar-collapse p--4" id="sidenav-collapse-main">
+            <div class="collapse navbar-collapse p--4 " id="sidenav-collapse-main">
                 <!-- Collapse header -->
                 <div class="navbar-collapse-header d-md-none">
                     <div class="row">
@@ -74,7 +75,7 @@
                         <div class="col-6 collapse-close">
                             <button type="button" class="navbar-toggler" data-toggle="collapse"
                                 data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
-                                aria-label="Toggle sidenav">
+                                aria-label="Toggle sidenav"> 
                                 <span></span>
                                 <span></span>
                             </button>
@@ -86,15 +87,16 @@
             </div>
         </div>
     </nav>
+    
     <div class="main-content">
         <!-- Navbar -->
         {{-- <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main"> --}}
-        <nav class="navbar navbar-expand-lg navbar-dark bg-image2 z-index-3 py-3" id="navbar-main">
+        <nav class="navbar navbar-expand-lg navbar-ligth  z-index-3 py-3" id="navbar-main">
             <div class="container-fluid">
                 <!-- Brand -->
-                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="#">Panel de Control</a>
+                <a class="h4 mb-0 text-dark text-uppercase d-none d-lg-inline-block" href="#">Panel de Control</a>
                 <!-- Form -->
-                <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+                <form class="navbar-search navbar-search-ligth form-inline mr-3 d-none d-md-flex ml-lg-auto">
                     <div class="form-group mb-0">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
@@ -126,7 +128,7 @@
         </nav>
         <!-- End Navbar -->
         <!-- Header -->
-        <div class="header  pb-4 pt-4 pt-md-6">
+        <div class="header bg-image2 pb-4 pt-4 pt-md-6">
         </div>
         
         <div class="container-fluid mt--7">
@@ -152,6 +154,9 @@
                 application: "argon-dashboard-free"
             });
     </script>
+    
+    
+
 </body>
 
 </html>
