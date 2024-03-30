@@ -80,5 +80,8 @@
                 </tbody>
             </table>
         </div>
+        <div class="card-body">
+            {{$employees->links()}}
+        </div>
     </div>
 @endsection

@@ -82,6 +82,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="card-body">
+            {{$customers->links()}}
+        </div>
     </div>
 @endsection
 

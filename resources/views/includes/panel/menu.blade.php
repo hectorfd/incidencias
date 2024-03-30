@@ -48,11 +48,7 @@
         <i class="fas fa-edit text-yellow"></i> Incidencias
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('equipos') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('equipos') ? 'active' : '' }}" href="{{ url('/equipos') }}">
-        <i class="ni ni-laptop text-success"></i> Equipos
-      </a>
-    </li>
+   
     <li class="nav-item pb-2 {{ Request::is('recursos') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('recursos') ? 'active' : '' }}" href="{{ url('/recursos') }}">
         <i class="fas fa-wrench text-ligth"></i> Recursos

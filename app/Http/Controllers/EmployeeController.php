@@ -14,7 +14,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = User::employees()->get();
+        $employees = User::employees()->paginate(10);
         return view('employees.index',compact('employees'));
     }
 
