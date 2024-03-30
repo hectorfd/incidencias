@@ -11,28 +11,30 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    //especialidades
+    Route::get('/especialidades', [App\Http\Controllers\Admin\SpecialtyController::class, 'index']);
+    Route::get('/especialidades/create', [App\Http\Controllers\Admin\SpecialtyController::class, 'create']);
+    Route::get('/especialidades/{specialty}/edit', [App\Http\Controllers\Admin\SpecialtyController::class, 'edit']);
+    Route::post('/especialidades', [App\Http\Controllers\Admin\SpecialtyController::class, 'sendData']);
 
-//especialidades
-Route::get('/especialidades', [App\Http\Controllers\SpecialtyController::class, 'index']);
-Route::get('/especialidades/create', [App\Http\Controllers\SpecialtyController::class, 'create']);
-Route::get('/especialidades/{specialty}/edit', [App\Http\Controllers\SpecialtyController::class, 'edit']);
-Route::post('/especialidades', [App\Http\Controllers\SpecialtyController::class, 'sendData']);
+    Route::put('/especialidades/{specialty}', [App\Http\Controllers\Admin\SpecialtyController::class, 'update']);
 
-Route::put('/especialidades/{specialty}', [App\Http\Controllers\SpecialtyController::class, 'update']);
+    Route::delete('/especialidades/{specialty}', [App\Http\Controllers\Admin\SpecialtyController::class, 'destroy']);
 
-Route::delete('/especialidades/{specialty}', [App\Http\Controllers\SpecialtyController::class, 'destroy']);
+    //departamentos
+    Route::get('/departamentos', [App\Http\Controllers\Admin\DepartmentController::class, 'index']);
+    Route::get('/departamentos/create', [App\Http\Controllers\Admin\DepartmentController::class, 'create']);
+    Route::get('/departamentos/{department}/edit', [App\Http\Controllers\Admin\DepartmentController::class, 'edit']);
+    Route::post('/departamentos', [App\Http\Controllers\Admin\DepartmentController::class, 'sendData']);
 
-//departamentos
-Route::get('/departamentos', [App\Http\Controllers\DepartmentController::class, 'index']);
-Route::get('/departamentos/create', [App\Http\Controllers\DepartmentController::class, 'create']);
-Route::get('/departamentos/{department}/edit', [App\Http\Controllers\DepartmentController::class, 'edit']);
-Route::post('/departamentos', [App\Http\Controllers\DepartmentController::class, 'sendData']);
+    Route::put('/departamentos/{department}', [App\Http\Controllers\Admin\DepartmentController::class, 'update']);
 
-Route::put('/departamentos/{department}', [App\Http\Controllers\DepartmentController::class, 'update']);
+    Route::delete('/departamentos/{department}', [App\Http\Controllers\Admin\DepartmentController::class, 'destroy']);
 
-Route::delete('/departamentos/{department}', [App\Http\Controllers\DepartmentController::class, 'destroy']);
-
-//Empleados
-Route::resource('empleados', App\Http\Controllers\EmployeeController::class);
-//Clientes
-Route::resource('clientes', App\Http\Controllers\CustomerController::class);
+    //Empleados
+    Route::resource('empleados', App\Http\Controllers\Admin\EmployeeController::class);
+    //Clientes
+    Route::resource('clientes', App\Http\Controllers\Admin\CustomerController::class);
+    
+});
