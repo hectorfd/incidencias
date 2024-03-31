@@ -131,7 +131,9 @@ class HorarioController extends Controller
 
         // return $horarios;
     
-        return view('horario', compact('days', 'horarios', 'empleados'));
+        // return view('horario', compact('days', 'horarios', 'empleados'));
+        return view('horario', compact('days', 'horarios', 'empleados', 'selectedUserIds'));
+
     }
     
 

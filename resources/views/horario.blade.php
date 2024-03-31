@@ -50,14 +50,23 @@
 
         </div>
         <!-- Agregar la selección de empleados -->
-        <div class="form-group">
-         <label for="empleados">Seleccionar empleados:</label>
+        {{-- <div class="form-group">
+         <label for="empleados">Empleados:</label>
          <select name="empleados[]" class="form-control" multiple>
              @foreach ($empleados as $empleado)
                  <option value="{{ $empleado->id }}">{{ $empleado->name }}</option>
              @endforeach
          </select>
-     </div>
+     </div> --}}
+     <div class="form-group">
+        <label for="empleados">Empleados:</label>
+        <select name="empleados[]" class="form-control" multiple>
+            @foreach ($empleados as $empleado)
+                <option value="{{ $empleado->id }}" @if ($loop->first) selected @endif>{{ $empleado->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    
 
             <div class="table-responsive">
                 <!-- Projects table -->
@@ -151,6 +160,7 @@
         </div>
     </form>
 
-        
-    
 @endsection
+
+
+
