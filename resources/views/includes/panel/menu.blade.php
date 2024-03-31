@@ -54,13 +54,14 @@
         <i class="fas fa-wrench text-ligth"></i> Recursos
       </a>
     </li>
-
-    @elseif(auth()->user()->role == 'empleado')
     <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
-        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horario
+        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horarios
       </a>
     </li>
+
+    @elseif(auth()->user()->role == 'empleado')
+    
     <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
         <i class="fas fa-clock text-info"></i> Incidencias
@@ -69,6 +70,11 @@
     <li class="nav-item pb-2 {{ Request::is('escalas') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('escalas') ? 'active' : '' }}" href="{{ url('/escalas') }}">
         <i class="fas fa-bed text-danger"></i> Escalas
+      </a>
+    </li>
+    <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
+        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horarios
       </a>
     </li>
 
