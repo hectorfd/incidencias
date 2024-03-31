@@ -10,6 +10,29 @@ use App\Models\User;
 
 class HorarioController extends Controller
 {
+    public function edit2(Request $request){
+
+        $horarios = Horarios::where('user_id', auth()->id())->get();
+
+        if(count($horarios) > 0){
+            $horarios->map(function($horarios){
+                $horarios->morning_start = (new Carbon($horarios->morning_start))->format('g:i A');
+                $horarios->morning_end = (new Carbon($horarios->morning_end))->format('g:i A');
+                $horarios->afternoon_start = (new Carbon($horarios->afternoon_start))->format('g:i A');
+                $horarios->afternoon_end = (new Carbon($horarios->afternoon_end))->format('g:i A');
+            });
+        }else {
+            $horarios = collect();
+            for ($i=0; $i<7; ++$i)
+                $horarios->push(new Horarios());
+        }
+
+        
+
+        $days = $this->days;
+
+        return view('horarioVista', compact('days', 'horarios')); 
+    }
     private $days = [
         'Lunes', 'Martes', 'Miércoles', 'Jueves',
         'Viernes', 'Sábado', 'Domingo'
@@ -136,5 +159,6 @@ class HorarioController extends Controller
 
     }
     
+   
 
 }

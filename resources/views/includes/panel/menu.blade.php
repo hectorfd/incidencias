@@ -72,9 +72,9 @@
         <i class="fas fa-bed text-danger"></i> Escalas
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
-        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horarios
+    <li class="nav-item pb-2 {{ Request::is('horarioVista') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('horarioVista') ? 'active' : '' }}" href="{{ url('/horarioVista') }}">
+        <i class="ni ni-calendar-grid-58 text-primary"></i> Mi Horario
       </a>
     </li>
 

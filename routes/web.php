@@ -40,4 +40,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     
 });
 
+//empleados
+Route::middleware(['auth', 'empleado'])->group(function () {
+    Route::get('/horarioVista', [App\Http\Controllers\Employee\HorarioController::class, 'edit2']);
+});
+
 
