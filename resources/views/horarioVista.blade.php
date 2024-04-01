@@ -189,13 +189,20 @@
                                         </div>
                                         <div class="col">
                                             <select class="form-control" name="morning_end[]" disabled>
-                                                @for ($i=8; $i<=11; $i++)
-                                                    <option value="{{ ($i<10 ? '0' : '') . $i }}:00"
-                                                    @if($i.':00 AM' == $horario->morning_end) selected @endif>
-                                                    {{ $i }}:00 AM</option>
-                                                    <option value="{{  ($i<10 ? '0' : '') . $i }}:30"
-                                                    @if($i.':30 AM' == $horario->morning_end) selected @endif>
-                                                    {{ $i }}:30 AM</option>
+                                                @php
+                                                    $activeTime = $horario->morning_end ? date('H:i', strtotime($horario->morning_end)) : '';
+                                                @endphp
+                                            
+                                                @for ($i = 8; $i <= 13; $i++)
+                                                    @for ($j = 0; $j <= 1; $j++)
+                                                        @php
+                                                            $time = ($i < 10 ? '0' . $i : $i) . ':' . ($j == 0 ? '00' : '30');
+                                                            $selected = ($activeTime == $time) ? 'selected' : '';
+                                                        @endphp
+                                                        <option value="{{ $time }}" {{ $selected }}>
+                                                            {{ $i == 13 ? 1 : $i }}:{{ $j == 0 ? '00' : '30' }} {{ $i < 12 ? 'AM' : 'PM' }}
+                                                        </option>
+                                                    @endfor
                                                 @endfor
                                             </select>
                                         </div>

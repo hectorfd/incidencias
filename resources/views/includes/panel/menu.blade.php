@@ -56,7 +56,7 @@
     </li>
     <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
-        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horarios
+        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestion Horario
       </a>
     </li>
 
@@ -81,7 +81,7 @@
     @else
     <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
-        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestionar Horario
+        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestion Horario
       </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">

@@ -101,7 +101,7 @@ class HorarioController extends Controller
     
         // Iterar sobre los empleados seleccionados y guardar los horarios asociados
         foreach ($empleadosSeleccionados as $empleadoId) {
-            for ($i = 0; $i < 7; $i++) {
+            for ($i = 0; $i < 7; ++$i) {
                 Horarios::updateOrCreate(
                     [
                         'day' => $i,
