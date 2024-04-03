@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpecialtiesTable extends Migration
+class AddSalaryColumnToSpecialtiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateSpecialtiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('specialties', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('description')->nullable();
-            
-            $table->timestamps();
+        Schema::table('specialties', function (Blueprint $table) {
+            $table->string('salario')->nullable();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateSpecialtiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specialties');
+        Schema::table('specialties', function (Blueprint $table) {
+            $table->dropColumn('salario');
+        });
     }
 }

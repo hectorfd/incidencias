@@ -37,6 +37,11 @@
                     <label for="description">Descripción</label>
                     <input type="text" name="description" class="form-control" value="{{old('description',$specialty->description)}}">
                 </div>
+
+                <div class="form-group">
+                    <label for="salario">Salario</label>
+                    <input type="text" name="salario" class="form-control" value="{{old('salario',$specialty->salario)}}">
+                </div>
                 <button type="submit" class="btn btn-sm btn-primary">Guardar Especialidad</button>
 
             </form>

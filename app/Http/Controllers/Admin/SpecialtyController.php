@@ -31,6 +31,7 @@ class SpecialtyController extends Controller
         $specialty = new Specialty();
         $specialty->name= $request->input('name');
         $specialty->description= $request->input('description');
+        $specialty->salario= $request->input('salario');
         $specialty->save();
         $notification = 'La especialidad se ha creado correctamente.';
 
@@ -53,6 +54,7 @@ class SpecialtyController extends Controller
 
         $specialty->name= $request->input('name');
         $specialty->description= $request->input('description');
+        $specialty->salario= $request->input('salario');
         $specialty->save();
         $notification = 'La especialidad se ha actualizado correctamente.';
 

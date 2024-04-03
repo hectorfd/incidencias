@@ -27,6 +27,7 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col" class="d-none d-md-table-cell">Descripcion</th>
+                        <th scope="col" class="d-none d-md-table-cell">Salario</th>
                         <th scope="col">Opciones</th>
                         
                     </tr>
@@ -43,6 +44,12 @@
                         </td> --}}
                         <th scope="row" class="d-none d-md-table-cell">
                             {{$especialidad->description}}
+                        </th>
+                        <th scope="row" class="d-none d-md-table-cell">
+                            S/.{{number_format($especialidad->salario),2,'.','.'}}
+                            
+                            
+
                         </th>
                         
                         <td>
