@@ -37,12 +37,23 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //Horarios Empleados
     Route::get('/horario', [App\Http\Controllers\Employee\HorarioController::class, 'edit']);
     Route::post('/horario', [App\Http\Controllers\Employee\HorarioController::class, 'store']);
-    
+
+
+    //productos
+    Route::get('/categorias', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
+    Route::get('/categorias/create', [App\Http\Controllers\Admin\CategoryController::class, 'create']);
+    Route::get('/categorias/{category}/edit', [App\Http\Controllers\Admin\CategoryController::class, 'edit']);
+    Route::post('/categorias', [App\Http\Controllers\Admin\CategoryController::class, 'sendData']);
+    Route::put('/categorias/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'update']);
+    Route::delete('/categorias/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy']);
 });
 
 //empleados
 Route::middleware(['auth', 'empleado'])->group(function () {
     Route::get('/horarioVista', [App\Http\Controllers\Employee\HorarioController::class, 'edit2']);
 });
+
+
+
 
 

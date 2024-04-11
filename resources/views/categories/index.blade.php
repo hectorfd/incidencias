@@ -5,10 +5,10 @@
         <div class="card-header border-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="mb-0">Especialidades</h3>
+                    <h3 class="mb-0">Categorias</h3>
                 </div>
                 <div class="col text-right">
-                    <a href="{{url('/especialidades/create')}}" class="btn btn-sm btn-primary">Nueva Especialidad</a>
+                    <a href="{{url('/categorias/create')}}" class="btn btn-sm btn-primary">Nueva Categoria</a>
                 </div>
             </div>
         </div>
@@ -25,38 +25,33 @@
             <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col" class="d-none d-md-table-cell">Descripcion</th>
-                        <th scope="col" class="d-none d-md-table-cell">Salario</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col" class="d-none d-md-table-cell">Descripción</th>
                         <th scope="col">Opciones</th>
                         
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ( $specialties as $especialidad )
+                    @foreach ( $categories as $categoria )
                     <tr>
                         <th scope="row" >
-                            {{$especialidad->name}}
+                            {{$categoria->category}}
                         </th>
                         {{-- <td class="d-none d-md-table-cell">
                             <textarea name="" id="" cols="50%" rows="3%" class="form-control border-0 resize-none">{{$especialidad->description}}</textarea>
                             
                         </td> --}}
                         <th scope="row" class="d-none d-md-table-cell">
-                            {{$especialidad->description}}
-                        </th>
-                        <th scope="row" class="d-none d-md-table-cell">
-                            S/.{{number_format($especialidad->salario),2,'.','.'}}
-                            
+                            {{$categoria->description}}
                         </th>
                         
                         <td>
                             
-                            <form action="{{url('/especialidades/'.$especialidad->id)}}" method="POST">
+                            <form action="{{url('/categorias/'.$categoria->id)}}" method="POST">
                              
                                 @csrf
                                 @method( 'DELETE' )
-                                <a href="{{url('/especialidades/'.$especialidad->id.'/edit')}}" class="btn btn-sm btn-outline-info">Editar</a>
+                                <a href="{{url('/categorias/'.$categoria->id.'/edit')}}" class="btn btn-sm btn-outline-info">Editar</a>
                                 <button type="submit" href="" class="btn btn-sm btn-danger">Eliminar</button>
                             </form>
                             

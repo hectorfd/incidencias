@@ -37,9 +37,9 @@
         <i class="ni ni-circle-08 text-orange"></i> Clientes
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('agendas') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('agendas') ? 'active' : '' }}" href="{{ url('/agendas') }}">
-        <i class="fas fa-address-book text-pink"></i> Agenda
+    <li class="nav-item pb-2 {{ Request::is('categorias') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('categorias') ? 'active' : '' }}" href="{{ url('/categorias') }}">
+        <i class="fas fas fa-paste text-pink"></i> Categoria
       </a>
     </li>
     
