@@ -21,18 +21,15 @@ class IncidenciasController extends Controller
 
 public function index()
 {
-    // $incidents = Incidencias::with(['cliente', 'empleado', 'categoria'])->get();
-
-    // $incidents = Incidencias::all();
+    
 
     $user = Auth::user();
 
-    // Obtener las incidencias asociadas al usuario autenticado
     $incidents = Incidencias::where('empleado_id', $user->id)
         ->with(['cliente', 'empleado', 'categoria'])
         ->get();
 
-    // Lógica de garantía...
+    
     $fechaActual = Carbon::now();
 
     foreach ($incidents as $incidencia) {
@@ -118,7 +115,7 @@ public function index()
 
     public function update(Request $request, $id)
     {
-        // Validación de los campos del formulario
+        
         $request->validate([
             'ticket' => 'required|string',
             'problem' => 'required|string',
@@ -129,10 +126,10 @@ public function index()
             'cliente' => 'required|exists:users,id',
         ]);
     
-        // Obtener la incidencia a actualizar
+        
         $incidencia = Incidencias::findOrFail($id);
     
-        // Actualizar los datos de la incidencia con los datos del formulario
+        
         $incidencia->ticket = $request->input('ticket');
         $incidencia->problem = $request->input('problem');
         $incidencia->description = $request->input('description');
@@ -143,22 +140,18 @@ public function index()
         $incidencia->empleado_id = $request->input('empleado');
         $incidencia->categoria_id = $request->input('categoria');
     
-        // Guardar los cambios en la base de datos
+        
         $incidencia->save();
     
-        // Redirigir a la vista de detalles de la incidencia o a donde desees
+        
         return redirect('/incidencias')->with('success', 'La incidencia ha actualizado exitosamente.');
     }
     
     public function destroy($id)
     {
-        // Obtener la incidencia a eliminar
+        
         $incidencia = Incidencias::findOrFail($id);
-
-        // Eliminar la incidencia
         $incidencia->delete();
-
-        // Redirigir a la página de incidencias o a donde desees después de eliminar
         return redirect('/incidencias')->with('success', '¡La incidencia se eliminó correctamente!');
     }
 

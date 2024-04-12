@@ -27,11 +27,10 @@
                     <tr>
                         <th scope="col">Ticket</th>
                         <th scope="col" class="d-none d-lg-table-cell">Problema</th>
-                        {{-- <th scope="col" class="d-none d-md-table-cell">Descripcion</th> --}}
-                        {{-- <th scope="col" class="d-none d-md-table-cell">Numero Boleta</th> --}}
+                        
                         <th scope="col" class="d-none d-md-table-cell">Garantia</th>
                         <th scope="col" class="d-none d-md-table-cell">Estado</th>
-                        {{-- <th scope="col" class="d-none d-md-table-cell">Empleado</th> --}}
+                       
                         <th scope="col" class="d-none d-md-table-cell">Cliente</th>
                         <th scope="col" class="d-none d-lg-table-cell">Cactegoria</th>
                         <th scope="col">Opciones</th>
@@ -41,34 +40,15 @@
                 <tbody>
                     @foreach ($incidents as $incidencia)
                     <tr>
-                        {{-- <th scope="row">{{$incidencia->ticket}}</th>
-                        <th scope="row">{{$incidencia->problem}}</th> --}}
-                        {{-- <th scope="row">{{$incidencia->description}}</th> --}}
-                        {{-- <th scope="row" class="d-none d-md-table-cell">{{$incidencia->numero_boleta}}</th> --}}
-                        {{-- <th scope="row" class="d-none d-md-table-cell">{{$incidencia->garantia}}</th>
-                        <th scope="row" class="d-none d-md-table-cell">{{$incidencia->status}}</th> --}}
-                        {{-- <th scope="row" class="d-none d-md-table-cell">{{$incidencia->empleado->name}}</th>
-                        <th scope="row" class="d-none d-md-table-cell">{{$incidencia->cliente->name}}</th>
-                        <th scope="row" class="d-none d-md-table-cell">{{$incidencia->categoria->nombre}}</th> --}}
-                        
-                        {{-- <th scope="row" class="d-none d-md-table-cell">{{ $empleado->name }}</th> --}}
-                        {{-- <th scope="row" class="d-none d-md-table-cell">{{ $cliente->name }}</th>  --}}
-
-                        {{-- <td>{{$incidencia->cliente_id}}</td> --}}
-                        {{-- <th scope="row" class="d-none d-md-table-cell">{{$incidencia->category}}</th> --}}
-
-
-
-                        <!-- Otros campos de incidencia -->
+                      
                         <td>{{$incidencia->ticket}}</td>
                         <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->problem}}</td>
-                        <!-- Otros campos de incidencia -->
+                        
                         
                         <th scope="row" class="d-none d-md-table-cell {{$incidencia->garantia == 'Con Garantía' ? 'badge badge-success' : ($incidencia->garantia == 'Sin Garantía' ? 'badge badge-warning' : 'badge badge-light')}}">{{$incidencia->garantia}}</th>
 
                         <td scope="row" class="d-none d-md-table-cell">{{$incidencia->status}}</td>
-                        <!-- Datos relacionados de cliente, empleado y categoría -->
-                        {{-- <td scope="row" class="d-none d-md-table-cell">{{$incidencia->empleado->name}}</td> --}}
+                        
                         <td scope="row" class="d-none d-md-table-cell">{{$incidencia->cliente->name}}</td>
                         
                         <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->categoria->category}}</td>
