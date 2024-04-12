@@ -64,6 +64,12 @@ Route::middleware(['auth', 'empleado'])->group(function () {
 });
 
 
+//clientes
+Route::middleware(['auth', 'cliente'])->group(function () {
+    Route::get('/incidencias', [App\Http\Controllers\Employee\IncidenciasController::class, 'index2']);
+    Route::get('/incidencias/{id}', [App\Http\Controllers\Employee\IncidenciasController::class, 'show']);
+});
+
 
 
 

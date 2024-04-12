@@ -45,11 +45,12 @@
     
    
    
-    <li class="nav-item pb-2 {{ Request::is('recursos') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('recursos') ? 'active' : '' }}" href="{{ url('/recursos') }}">
-        <i class="fas fa-wrench text-ligth"></i> Recursos
+    <li class="nav-item pb-2 {{ Request::is('equipos') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('equipos') ? 'active' : '' }}" href="{{ url('/equipos') }}">
+        <i class="fas fa-wrench text-ligth"></i> Equipos
       </a>
     </li>
+    
     <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
         <i class="ni ni-calendar-grid-58 text-primary"></i> Gestion Horario
@@ -75,16 +76,21 @@
     </li>
 
     @else
-    <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
-        <i class="ni ni-calendar-grid-58 text-primary"></i> Gestion Horario
+    <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
+        <i class="ni ni-calendar-grid-58 text-primary"></i> Mis incidencias
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
+    <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
+        <i class="ni ni-calendar-grid-58 text-primary"></i> Mis Equipos
+      </a>
+    </li>
+    {{-- <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
         <i class="fas fa-clock text-info"></i> Reportar incidencias
       </a>
-    </li>
+    </li> --}}
     @endif
 
     <li class="nav-item pb-2 ">
