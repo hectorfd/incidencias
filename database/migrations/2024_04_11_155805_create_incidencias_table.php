@@ -14,9 +14,22 @@ class CreateIncidenciasTable extends Migration
     public function up()
     {
         Schema::create('incidencias', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('ticket')->unique();
+            $table->string('problem');
+            $table->text('description');
+            $table->string('numero_boleta')->nullable();
+            $table->date('fecha_boleta')->nullable(); 
+            $table->enum('status', ['resuelto', 'pendiente'])->default('pendiente');
+            $table->unsignedBigInteger('empleado_id'); 
+            $table->unsignedBigInteger('cliente_id');
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('empleado_id')->references('id')->on('users'); 
+            $table->foreign('cliente_id')->references('id')->on('users');
+            $table->foreign('categoria_id')->references('id')->on('categories');
             $table->timestamps();
         });
+        
     }
 
     /**

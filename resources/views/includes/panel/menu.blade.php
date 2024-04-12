@@ -43,11 +43,7 @@
       </a>
     </li>
     
-    <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
-        <i class="fas fa-edit text-yellow"></i> Incidencias
-      </a>
-    </li>
+   
    
     <li class="nav-item pb-2 {{ Request::is('recursos') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('recursos') ? 'active' : '' }}" href="{{ url('/recursos') }}">
@@ -64,7 +60,7 @@
     
     <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
-        <i class="fas fa-clock text-info"></i> Incidencias
+        <i class="fas fa-edit text-yellow"></i> Incidencias
       </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('escalas') ? 'active' : '' }}">

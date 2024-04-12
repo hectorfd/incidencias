@@ -46,11 +46,21 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/categorias', [App\Http\Controllers\Admin\CategoryController::class, 'sendData']);
     Route::put('/categorias/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'update']);
     Route::delete('/categorias/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy']);
+
+
 });
 
 //empleados
 Route::middleware(['auth', 'empleado'])->group(function () {
     Route::get('/horarioVista', [App\Http\Controllers\Employee\HorarioController::class, 'edit2']);
+    
+    //incidencias
+    Route::get('/incidencias', [App\Http\Controllers\Employee\IncidenciasController::class, 'index']);
+    Route::get('/incidencias/create', [App\Http\Controllers\Employee\IncidenciasController::class, 'create']);
+    Route::post('/incidencias', [App\Http\Controllers\Employee\IncidenciasController::class, 'store']);
+    Route::get('/incidencias/{incident}/edit', [App\Http\Controllers\Employee\IncidenciasController::class, 'edit']);
+    Route::put('/incidencias/{incident}', [App\Http\Controllers\Employee\IncidenciasController::class, 'update']);
+    Route::delete('/incidencias/{incident}', [App\Http\Controllers\Employee\IncidenciasController::class, 'destroy']);
 });
 
 
