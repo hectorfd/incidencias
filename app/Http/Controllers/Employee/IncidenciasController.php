@@ -48,7 +48,7 @@ public function index()
                 $incidencia->garantia = "Sin Garantía";
             }
         } else {
-            // Si no hay fecha de boleta, se considera como "Sin Garantía"
+            
             $incidencia->garantia = "Sin Fecha";
         }
     }
@@ -76,37 +76,91 @@ public function index()
         return view('incidents.create',compact('clientes','empleado','categorias','ticket'));
     }
 
-    public function store(Request $request)
-{
-    $request->validate([
-        'ticket' => 'required|string',
-        'problem' => 'required|string',
-        'description' => 'required|string',
-        'numero_boleta' => 'nullable|string',
-        'fecha_boleta' => 'nullable|date',
-        'categoria' => 'required|exists:categories,id',
-        'cliente' => 'required|exists:users,id',
-    ]);
+        public function store(Request $request)
+    {
+        $request->validate([
+            'ticket' => 'required|string',
+            'problem' => 'required|string',
+            'description' => 'required|string',
+            'numero_boleta' => 'nullable|string',
+            'fecha_boleta' => 'nullable|date',
+            'categoria' => 'required|exists:categories,id',
+            'cliente' => 'required|exists:users,id',
+        ]);
 
-    // Crear la incidencia
-    $incidencia = new Incidencias();
-    $incidencia->ticket = $request->ticket;
-    $incidencia->problem = $request->problem;
-    $incidencia->description = $request->description;
-    $incidencia->numero_boleta = $request->numero_boleta;
-    $incidencia->fecha_boleta = $request->fecha_boleta;
-    $incidencia->status = 'pendiente'; 
-    $incidencia->empleado_id = Auth::id(); 
-    $incidencia->cliente_id = $request->cliente;
-    $incidencia->categoria_id = $request->categoria;
+        // Crear la incidencia
+        $incidencia = new Incidencias();
+        $incidencia->ticket = $request->ticket;
+        $incidencia->problem = $request->problem;
+        $incidencia->description = $request->description;
+        $incidencia->numero_boleta = $request->numero_boleta;
+        $incidencia->fecha_boleta = $request->fecha_boleta;
+        $incidencia->status = 'pendiente'; 
+        $incidencia->empleado_id = Auth::id(); 
+        $incidencia->cliente_id = $request->cliente;
+        $incidencia->categoria_id = $request->categoria;
 
-    $incidencia->save();
+        $incidencia->save();
 
-    return redirect('/incidencias')->with('success', 'La incidencia ha sido creada exitosamente.');
-}
+        return redirect('/incidencias')->with('success', 'La incidencia ha sido creada exitosamente.');
+    }
 
-//mostrar datos
+    //mostrar datos
 
+    public function edit(Incidencias $incident) {
+
+        $empleado = Auth::user();
+        $clientes = User::where('role', 'cliente')->get();
+        $categorias = Category::orderBy('category')->get();
+        return view('incidents.edit', compact('incident','clientes','empleado','categorias'));
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validación de los campos del formulario
+        $request->validate([
+            'ticket' => 'required|string',
+            'problem' => 'required|string',
+            'description' => 'required|string',
+            'numero_boleta' => 'nullable|string',
+            'fecha_boleta' => 'nullable|date',
+            'categoria' => 'required|exists:categories,id',
+            'cliente' => 'required|exists:users,id',
+        ]);
+    
+        // Obtener la incidencia a actualizar
+        $incidencia = Incidencias::findOrFail($id);
+    
+        // Actualizar los datos de la incidencia con los datos del formulario
+        $incidencia->ticket = $request->input('ticket');
+        $incidencia->problem = $request->input('problem');
+        $incidencia->description = $request->input('description');
+        $incidencia->numero_boleta = $request->input('numero_boleta');
+        $incidencia->fecha_boleta = $request->input('fecha_boleta');
+        $incidencia->status = $request->input('status');
+        $incidencia->cliente_id = $request->input('cliente');
+        $incidencia->empleado_id = $request->input('empleado');
+        $incidencia->categoria_id = $request->input('categoria');
+    
+        // Guardar los cambios en la base de datos
+        $incidencia->save();
+    
+        // Redirigir a la vista de detalles de la incidencia o a donde desees
+        return redirect('/incidencias')->with('success', 'La incidencia ha actualizado exitosamente.');
+    }
+    
+    public function destroy($id)
+    {
+        // Obtener la incidencia a eliminar
+        $incidencia = Incidencias::findOrFail($id);
+
+        // Eliminar la incidencia
+        $incidencia->delete();
+
+        // Redirigir a la página de incidencias o a donde desees después de eliminar
+        return redirect('/incidencias')->with('success', '¡La incidencia se eliminó correctamente!');
+    }
 
 
 }

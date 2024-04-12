@@ -31,7 +31,7 @@
                         {{-- <th scope="col" class="d-none d-md-table-cell">Numero Boleta</th> --}}
                         <th scope="col" class="d-none d-md-table-cell">Garantia</th>
                         <th scope="col" class="d-none d-md-table-cell">Estado</th>
-                        <th scope="col" class="d-none d-md-table-cell">Empleado</th>
+                        {{-- <th scope="col" class="d-none d-md-table-cell">Empleado</th> --}}
                         <th scope="col" class="d-none d-md-table-cell">Cliente</th>
                         <th scope="col" class="d-none d-lg-table-cell">Cactegoria</th>
                         <th scope="col">Opciones</th>
@@ -63,12 +63,12 @@
                         <td>{{$incidencia->ticket}}</td>
                         <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->problem}}</td>
                         <!-- Otros campos de incidencia -->
-                        {{-- <th scope="row" class="d-none d-md-table-cell {{$incidencia->garantia == 'Con Garantía' ? 'badge badge-success' : 'badge badge-warning':'badge badge-light'}}">{{$incidencia->garantia}}</th> --}}
+                        
                         <th scope="row" class="d-none d-md-table-cell {{$incidencia->garantia == 'Con Garantía' ? 'badge badge-success' : ($incidencia->garantia == 'Sin Garantía' ? 'badge badge-warning' : 'badge badge-light')}}">{{$incidencia->garantia}}</th>
 
                         <td scope="row" class="d-none d-md-table-cell">{{$incidencia->status}}</td>
                         <!-- Datos relacionados de cliente, empleado y categoría -->
-                        <td scope="row" class="d-none d-md-table-cell">{{$incidencia->empleado->name}}</td>
+                        {{-- <td scope="row" class="d-none d-md-table-cell">{{$incidencia->empleado->name}}</td> --}}
                         <td scope="row" class="d-none d-md-table-cell">{{$incidencia->cliente->name}}</td>
                         
                         <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->categoria->category}}</td>
