@@ -63,7 +63,8 @@
                         <td>{{$incidencia->ticket}}</td>
                         <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->problem}}</td>
                         <!-- Otros campos de incidencia -->
-                        <th scope="row" class="d-none d-md-table-cell {{$incidencia->garantia == 'Con Garantía' ? 'badge badge-success' : 'badge badge-warning'}}">{{$incidencia->garantia}}</th>
+                        {{-- <th scope="row" class="d-none d-md-table-cell {{$incidencia->garantia == 'Con Garantía' ? 'badge badge-success' : 'badge badge-warning':'badge badge-light'}}">{{$incidencia->garantia}}</th> --}}
+                        <th scope="row" class="d-none d-md-table-cell {{$incidencia->garantia == 'Con Garantía' ? 'badge badge-success' : ($incidencia->garantia == 'Sin Garantía' ? 'badge badge-warning' : 'badge badge-light')}}">{{$incidencia->garantia}}</th>
 
                         <td scope="row" class="d-none d-md-table-cell">{{$incidencia->status}}</td>
                         <!-- Datos relacionados de cliente, empleado y categoría -->

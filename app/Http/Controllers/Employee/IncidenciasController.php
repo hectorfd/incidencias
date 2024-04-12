@@ -18,59 +18,6 @@ class IncidenciasController extends Controller
         $this ->middleware('auth');
     }
 
-    //indexuse App\Models\Incidencias;
-
-    // public function index()
-    // {
-        
-    //     $incidents = Incidencias::all();
-
-    //     $empleado = Auth::user();
-    //     $cliente = User::where('role', 'cliente')->get();
-    //     $categorias = Category::orderBy('category')->get();
-
-    //     // Modificar la lógica de la garantía esto no lo toques para nada 
-    //     foreach ($incidents as $incidencia) {
-    //         $fechaBoleta = Carbon::parse($incidencia->fecha_boleta);
-    //         $diasDiferencia = $fechaBoleta->diffInDays(Carbon::now());
-
-    //         if ($diasDiferencia > 365) {
-    //             $incidencia->garantia = 'Sin garantía';
-    //         } elseif ($diasDiferencia > 180) {
-    //             $incidencia->garantia = 'Garantía limitada';
-    //         } else {
-    //             $incidencia->garantia = 'Con garantía';
-    //         }
-    //     }
-
-    //     return view('incidents.index', compact('incidents', 'empleado', 'cliente', 'categorias'));
-    // }
-
-
-//     public function index()
-// {
-//     $incidents = Incidencias::all();
-
-//     $empleado = Auth::user();
-//     $cliente = User::where('role', 'cliente')->get();
-//     $categorias = Category::orderBy('category')->get();
-
-//     foreach ($incidents as $incidencia) {
-//         $fechaBoleta = Carbon::parse($incidencia->fecha_boleta);
-//         $diasDiferencia = $fechaBoleta->diffInDays(Carbon::now());
-
-//         if ($diasDiferencia > 365) {
-//             $incidencia->garantia = 'Sin garantía';
-//         } elseif ($diasDiferencia > 180) {
-//             $incidencia->garantia = 'Garantía limitada';
-//         } else {
-//             $incidencia->garantia = 'Con garantía';
-//         }
-//     }
-
-//     return view('incidents.index', compact('incidents', 'empleado', 'cliente', 'categorias'));
-// }
-
 
 public function index()
 {
@@ -88,21 +35,26 @@ public function index()
     // Lógica de garantía...
     $fechaActual = Carbon::now();
 
-    // Recorrer cada incidencia para determinar si tiene garantía
     foreach ($incidents as $incidencia) {
-        // Calcular la diferencia de fechas en años
+        
         $diferenciaFechas = $fechaActual->diffInYears($incidencia->fecha_boleta);
 
-        // Si la diferencia de fechas es menor a 1 año, tiene garantía
-        if ($diferenciaFechas < 1) {
-            $incidencia->garantia = "Con Garantía";
+        if (!empty($incidencia->fecha_boleta)) {
+            $diferenciaFechas = $fechaActual->diffInYears($incidencia->fecha_boleta);
+
+            if ($diferenciaFechas < 1) {
+                $incidencia->garantia = "Con Garantía";
+            } else {
+                $incidencia->garantia = "Sin Garantía";
+            }
         } else {
-            $incidencia->garantia = "Sin Garantía";
+            // Si no hay fecha de boleta, se considera como "Sin Garantía"
+            $incidencia->garantia = "Sin Fecha";
         }
     }
     return view('incidents.index', compact('incidents'));
 
-    // return view('incidents.index', compact('incidents'));
+    
 }
 
 
