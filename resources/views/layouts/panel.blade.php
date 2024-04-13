@@ -155,7 +155,27 @@
             });
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+    <script>
+        function updateFileName(input) {
+            var fileName = input.files[0].name;
+            var label = document.getElementById('customFileLabel');
+            label.innerHTML = fileName;
+        }
+
+        
+
+
+    </script>
+
+    <script>
+        function previewImage(input) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('imagePreview').src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
     
 
 </body>

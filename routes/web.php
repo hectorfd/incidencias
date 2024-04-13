@@ -47,6 +47,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/categorias/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'update']);
     Route::delete('/categorias/{category}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy']);
 
+    //equipos
+    Route::get('/equipos', [App\Http\Controllers\DeviceController::class, 'index']);
+    Route::get('/equipos/create', [App\Http\Controllers\DeviceController::class, 'create']);
+   
+    Route::get('/equipos/{device}/edit', [App\Http\Controllers\DeviceController::class, 'edit']);
+    Route::post('/equipos', [App\Http\Controllers\DeviceController::class, 'store']);
+    Route::put('/equipos/{device}', [App\Http\Controllers\DeviceController::class, 'update']);
+    Route::delete('/equipos/{device}', [App\Http\Controllers\DeviceController::class, 'destroy']);
+
 
 });
 
@@ -61,6 +70,7 @@ Route::middleware(['auth', 'empleado'])->group(function () {
     Route::get('/incidencias/{incident}/edit', [App\Http\Controllers\Employee\IncidenciasController::class, 'edit']);
     Route::put('/incidencias/{incident}', [App\Http\Controllers\Employee\IncidenciasController::class, 'update']);
     Route::delete('/incidencias/{incident}', [App\Http\Controllers\Employee\IncidenciasController::class, 'destroy']);
+
 });
 
 

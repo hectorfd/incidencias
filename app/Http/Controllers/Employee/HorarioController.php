@@ -40,13 +40,13 @@ class HorarioController extends Controller
     public function edit(Request $request){
 
         $empleados = User::where('role', 'empleado')->get();
-        $selectedUserIds = $request->input('empleados'); // Obtener los IDs de los usuarios seleccionados
+        $selectedUserIds = $request->input('empleados'); 
     
-        // Si se han seleccionado usuarios, filtrar los horarios por esos usuarios
+        
         if ($selectedUserIds) {
             $horarios = Horarios::whereIn('user_id', $selectedUserIds)->get();
         } else {
-            // Si no se ha seleccionado ningún usuario, mostrar los horarios del usuario autenticado
+            
             $horarios = Horarios::where('user_id', auth()->id())->get();
         }
     
@@ -73,14 +73,14 @@ class HorarioController extends Controller
 
         $action = $request->input('action');
 
-        // Si la acción es "Cargar horario", llama al método "load"
+        
         if ($action == 'load') {
             return $this->load($request);
         }
     
-        // Si la acción es "Guardar cambios", llama al método "save"
+        
         if ($action == 'save') {
-            // Validar que 'active' esté presente en la solicitud
+            
             $request->validate([
                 'active' => 'required|array',
             ]);
@@ -91,15 +91,15 @@ class HorarioController extends Controller
     }
     
     public function save(Request $request){
-        // Validar que 'active' esté presente en la solicitud y no sea nulo
+        
         $request->validate([
             'active' => 'required|array',
         ]);
     
-        // Obtener los IDs de los empleados seleccionados
+        
         $empleadosSeleccionados = $request->input('empleados') ?: [];
     
-        // Iterar sobre los empleados seleccionados y guardar los horarios asociados
+        
         foreach ($empleadosSeleccionados as $empleadoId) {
             for ($i = 0; $i < 7; ++$i) {
                 Horarios::updateOrCreate(
@@ -108,8 +108,8 @@ class HorarioController extends Controller
                         'user_id' => $empleadoId,
                     ],
                     [
-                        // Asignar los valores de los horarios desde el formulario
-                        'active' => $request->input('active.' . $i) ? 1 : 0, // Convertir a entero
+                        
+                        'active' => $request->input('active.' . $i) ? 1 : 0, 
                         'morning_start' => $request->input('morning_start.' . $i),
                         'morning_end' => $request->input('morning_end.' . $i),
                         'afternoon_start' => $request->input('afternoon_start.' . $i),
@@ -119,18 +119,18 @@ class HorarioController extends Controller
             }
         }
     
-        // Redirigir de regreso a la vista con una notificación
+        
         return back()->with('notification', 'Los horarios se han guardado correctamente.');
     }
     
     
     public function load(Request $request){
-        $selectedUserIds = $request->input('empleados'); // Obtener los IDs de los usuarios seleccionados
+        $selectedUserIds = $request->input('empleados'); 
     
-        // Obtener los horarios de los usuarios seleccionados
+        
         $horarios = Horarios::whereIn('user_id', $selectedUserIds)->get();
     
-        // Formatear los horarios
+        
         if(count($horarios) > 0){
             $horarios->map(function($horario){
                 $horario->morning_start = (new Carbon($horario->morning_start))->format('g:i A');
