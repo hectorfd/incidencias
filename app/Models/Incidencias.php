@@ -19,9 +19,9 @@ class Incidencias extends Model
         return $this->belongsTo(User::class, 'cliente_id');
     }
 
-public function categoria()
-{
-    return $this->belongsTo(Category::class, 'categoria_id');
-}
+    public function categoria()
+    {
+        return $this->belongsTo(Category::class, 'categoria_id');
+    }
 
 }

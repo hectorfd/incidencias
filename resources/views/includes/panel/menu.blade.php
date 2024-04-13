@@ -50,7 +50,7 @@
         <i class="fas fa-wrench text-ligth"></i> Equipos
       </a>
     </li>
-    
+
     <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
         <i class="ni ni-calendar-grid-58 text-primary"></i> Gestion Horario
@@ -58,6 +58,12 @@
     </li>
 
     @elseif(auth()->user()->role == 'empleado')
+
+    <li class="nav-item pb-2 {{ Request::is('mis_equipos') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('mis_equipos') ? 'active' : '' }}" href="{{ url('/mis_equipos') }}">
+        <i class="fas fa-wrench text-ligth"></i> Equipos
+      </a>
+    </li>
     
     <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
@@ -75,9 +81,9 @@
       </a>
     </li>
 
-    @else
-    <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('incidencias') ? 'active' : '' }}" href="{{ url('/incidencias') }}">
+    @elseif(auth()->user()->role == 'cliente')
+    <li class="nav-item pb-2 {{ Request::is('mis_incidencias') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('mis_incidencias') ? 'active' : '' }}" href="{{ url('/mis_incidencias') }}">
         <i class="ni ni-calendar-grid-58 text-primary"></i> Mis incidencias
       </a>
     </li>

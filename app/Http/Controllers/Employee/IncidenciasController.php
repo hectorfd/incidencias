@@ -14,29 +14,52 @@ use Carbon\Carbon;
 class IncidenciasController extends Controller
 {
     
-    public function __construct() {
-        $this ->middleware('auth');
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
+    
 
+
+    //index
+    // public function index()
+    // {
+    //     $user = Auth::user();
+    //     $incidents = Incidencias::where('empleado_id', $user->id)
+    //         ->with(['cliente', 'empleado', 'categoria'])
+    //         ->get();
+
+    //     $fechaActual = Carbon::now();
+    //     foreach ($incidents as $incidencia) {
+    //         $diferenciaFechas = $fechaActual->diffInYears($incidencia->fecha_boleta);
+
+    //         if (!empty($incidencia->fecha_boleta)) {
+    //             $diferenciaFechas = $fechaActual->diffInYears($incidencia->fecha_boleta);
+
+    //             if ($diferenciaFechas < 1) {
+    //                 $incidencia->garantia = "Con Garantía";
+    //             } else {
+    //                 $incidencia->garantia = "Sin Garantía";
+    //             }
+    //         } else { 
+    //             $incidencia->garantia = "Sin Fecha";
+    //         }
+    //     }
+    //     return view('incidents.index', compact('incidents'));
+        
+    // }
 
     public function index()
     {
-        
-
         $user = Auth::user();
-
         $incidents = Incidencias::where('empleado_id', $user->id)
             ->with(['cliente', 'empleado', 'categoria'])
             ->get();
 
-        
         $fechaActual = Carbon::now();
-
         foreach ($incidents as $incidencia) {
-            
-            $diferenciaFechas = $fechaActual->diffInYears($incidencia->fecha_boleta);
-
             if (!empty($incidencia->fecha_boleta)) {
+                // Verificar la existencia de la fecha de boleta antes de calcular la diferencia
                 $diferenciaFechas = $fechaActual->diffInYears($incidencia->fecha_boleta);
 
                 if ($diferenciaFechas < 1) {
@@ -44,20 +67,17 @@ class IncidenciasController extends Controller
                 } else {
                     $incidencia->garantia = "Sin Garantía";
                 }
-            } else {
-                
+            } else { 
                 $incidencia->garantia = "Sin Fecha";
             }
         }
         return view('incidents.index', compact('incidents'));
-
-        
     }
+
 
     //index2
     public function index2(){
-        // $incidencias = Incidencias::all();
-        // return view('mis_incidencias.index',compact('incidencias'));
+        
         $user = Auth::user();
 
         $incidents = Incidencias::where('cliente_id', $user->id)

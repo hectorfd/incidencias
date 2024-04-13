@@ -71,13 +71,21 @@ Route::middleware(['auth', 'empleado'])->group(function () {
     Route::put('/incidencias/{incident}', [App\Http\Controllers\Employee\IncidenciasController::class, 'update']);
     Route::delete('/incidencias/{incident}', [App\Http\Controllers\Employee\IncidenciasController::class, 'destroy']);
 
+    //equipos
+    Route::get('/mis_equipos', [App\Http\Controllers\DeviceController::class, 'index']);
+    Route::get('/mis_equipos/create', [App\Http\Controllers\DeviceController::class, 'create']);
+    Route::get('/mis_equipos/{device}/edit', [App\Http\Controllers\DeviceController::class, 'edit']);
+    Route::post('/mis_equipos', [App\Http\Controllers\DeviceController::class, 'store']);
+    Route::put('/mis_equipos/{device}', [App\Http\Controllers\DeviceController::class, 'update']);
+    Route::delete('/mis_equipos/{device}', [App\Http\Controllers\DeviceController::class, 'destroy']);
+
 });
 
 
 //clientes
 Route::middleware(['auth', 'cliente'])->group(function () {
-    Route::get('/incidencias', [App\Http\Controllers\Employee\IncidenciasController::class, 'index2']);
-    Route::get('/incidencias/{id}', [App\Http\Controllers\Employee\IncidenciasController::class, 'show']);
+    Route::get('/mis_incidencias', [App\Http\Controllers\Employee\IncidenciasController::class, 'index2']);
+    Route::get('/mis_incidencias/{id}', [App\Http\Controllers\Employee\IncidenciasController::class, 'show']);
 });
 
 
