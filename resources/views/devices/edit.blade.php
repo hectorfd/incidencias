@@ -83,7 +83,7 @@
                                 <label for="foto">Foto</label>
                                 <div class="custom-file">
                                     <input type="file" name="foto" class="custom-file-input" id="customFile" onchange="previewImage(this)">
-                                    <label class="custom-file-label" for="customFile" id="customFileLabel">Seleccionar archivo</label>
+                                    <label class="btn btn-success" for="customFile" id="customFileLabel">Seleccionar archivo</label>
                                 </div>
                                 <img id="imagePreview" class="mt-2" style="max-width: 100%;" src="{{ asset('uploads/'.$device->foto) }}" alt="Vista previa de la imagen">
                                 <small id="fileHelp" class="form-text text-muted">Por favor, seleccione una imagen en formato JPEG, PNG, JPG o GIF.</small>

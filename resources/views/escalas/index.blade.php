@@ -27,46 +27,47 @@
                     <tr>
                         <th scope="col">Proceso</th>
                         <th scope="col">Ticket</th>
-                        <th scope="col" class="d-none d-lg-table-cell">Descipcion</th>
+                        
                         <th scope="col" class="d-none d-md-table-cell">Estado</th>
                        
                         <th scope="col" class="d-none d-md-table-cell">Precio</th>
                         
                         <th scope="col" class="d-none d-md-table-cell">Fecha inicio</th>
+                        <th scope="col" class="d-none d-lg-table-cell">Fin del proceso</th>
                         <th scope="col">Opciones</th>
                         
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($escalas as $escala)
-                    <tr>
-                      
-                        <td>{{$escala->nombre}}</td>
-                        <td>{{ $escala->incidencia->ticket }}</td>
-                        <td scope="row" class="d-none d-lg-table-cell">{{$escala->description}}</td>
-                        <td scope="row" class="d-none d-lg-table-cell">{{$escala->status}}</td>
-                        <td scope="row" class="d-none d-lg-table-cell">{{$escala->precio}}</td>
-                        <td scope="row" class="d-none d-lg-table-cell">{{$escala->hora_inicio}}</td>
-                        
-                        
-                        {{-- <th scope="row" class="d-none d-md-table-cell {{$incidencia->garantia == 'Con Garantía' ? 'badge badge-success' : ($incidencia->garantia == 'Sin Garantía' ? 'badge badge-warning' : 'badge badge-light')}}">{{$incidencia->garantia}}</th>
-
-                        <td scope="row" class="d-none d-md-table-cell">{{$incidencia->status}}</td>
-                        
-                        <td scope="row" class="d-none d-md-table-cell">{{$incidencia->cliente->name}}</td>
-                        
-                        <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->categoria->category}}</td> --}}
-
-                        <td>
-                            <form action="{{url('/escalas/'.$escala->id)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <a href="{{url('/escalas/'.$escala->id.'/edit')}}" class="btn btn-sm btn-outline-info">Editar</a>
-                                <button type="submit" href="" class="btn btn-sm btn-danger">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ $escala->nombre }}</td>
+                            <td>{{ $escala->incidencia->ticket }}</td>
+                            {{-- <td scope="row" class="d-none d-lg-table-cell">{{ $escala->description }}</td> --}}
+                            <td scope="row" class="d-none d-lg-table-cell">
+                                <form action="{{ url('/escalas/'.$escala->id.'/update-status') }}" method="POST">
+                                    @csrf
+                                    <select name="status" class="form-control btn-outline-success" onchange="this.form.submit()">
+                                        <option value="en progreso" {{ $escala->status === 'en progreso' ? 'selected' : '' }}>En progreso</option>
+                                        <option value="terminado" {{ $escala->status === 'terminado' ? 'selected' : '' }}>Terminado</option>
+                                        <option value="resuelto" {{ $escala->status === 'resuelto' ? 'selected' : '' }}>Resuelto</option>
+                                    </select>
+                                </form>
+                            </td>
+                            <td scope="row" class="d-none d-lg-table-cell">{{ $escala->precio }}</td>
+                            <td scope="row" class="d-none d-lg-table-cell">{{ $escala->hora_inicio }}</td>
+                            <td scope="row" class="d-none d-lg-table-cell">{{ $escala->hora_fin }}</td>
+                            <td>
+                                <form action="{{ url('/escalas/'.$escala->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{ url('/escalas/'.$escala->id.'/edit') }}" class="btn btn-sm btn-outline-info">Editar</a>
+                                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
                     @endforeach
+
                 </tbody>
             
             </table>

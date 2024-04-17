@@ -84,7 +84,7 @@
                             <label for="foto">Foto</label>
                             <div class="custom-file">
                                 <input type="file" name="foto" class="custom-file-input" id="customFile" onchange="updateFileName(this)">
-                                <label class="custom-file-label" for="customFile" id="customFileLabel">Seleccionar archivo</label>
+                                <label class="btn btn-success" for="customFile" id="customFileLabel">Seleccionar archivo</label>
                             </div>
                             <small id="fileHelp" class="form-text text-muted">Por favor, seleccione una imagen en formato JPEG, PNG, JPG o GIF.</small>
                         </div>

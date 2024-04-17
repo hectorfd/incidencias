@@ -78,6 +78,8 @@ Route::middleware(['auth', 'empleado'])->group(function () {
     Route::get('/escalas/{escala}/edit', [App\Http\Controllers\EscalaController::class, 'edit']);
     Route::put('/escalas/{escala}', [App\Http\Controllers\EscalaController::class, 'update']);
     Route::delete('/escalas/{escala}', [App\Http\Controllers\EscalaController::class, 'destroy']);
+    Route::post('/escalas/{escala}/update-status', [App\Http\Controllers\EscalaController::class, 'updateStatus']);
+
 
     //equipos
     Route::get('/mis_equipos', [App\Http\Controllers\DeviceController::class, 'index']);
