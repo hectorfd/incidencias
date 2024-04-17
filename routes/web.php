@@ -71,6 +71,14 @@ Route::middleware(['auth', 'empleado'])->group(function () {
     Route::put('/incidencias/{incident}', [App\Http\Controllers\Employee\IncidenciasController::class, 'update']);
     Route::delete('/incidencias/{incident}', [App\Http\Controllers\Employee\IncidenciasController::class, 'destroy']);
 
+    //escalas
+    Route::get('/escalas', [App\Http\Controllers\EscalaController::class, 'index']);
+    Route::get('/escalas/create', [App\Http\Controllers\EscalaController::class, 'create']);
+    Route::post('/escalas', [App\Http\Controllers\EscalaController::class, 'store']);
+    Route::get('/escalas/{escala}/edit', [App\Http\Controllers\EscalaController::class, 'edit']);
+    Route::put('/escalas/{escala}', [App\Http\Controllers\EscalaController::class, 'update']);
+    Route::delete('/escalas/{escala}', [App\Http\Controllers\EscalaController::class, 'destroy']);
+
     //equipos
     Route::get('/mis_equipos', [App\Http\Controllers\DeviceController::class, 'index']);
     Route::get('/mis_equipos/create', [App\Http\Controllers\DeviceController::class, 'create']);

@@ -21,10 +21,17 @@
                 <div class="col">
                     <h3 class="mb-0">Nuevo Equipo</h3>
                 </div>
+                
                 <div class="col text-right">
-                    <a href="{{url('/equipos')}}" class="btn btn-sm btn-success">
-                        <i class="fas fa-chevron-left"></i>
-                        Regresar</a>
+                    @if(auth()->user()->role === 'admin')
+                        <a href="{{ url('/equipos') }}" class="btn btn-sm btn-success">
+                            <i class="fas fa-chevron-left"></i> Regresar
+                        </a>
+                    @elseif(auth()->user()->role === 'empleado')
+                        <a href="{{ url('/mis_equipos') }}" class="btn btn-sm btn-success">
+                            <i class="fas fa-chevron-left"></i> Regresar
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -39,7 +46,8 @@
                 </div>
             @endif
 
-            <form action="{{ url('/equipos') }}" method="POST" enctype="multipart/form-data">
+            {{-- <form action="{{ url('/equipos') }}" method="POST" enctype="multipart/form-data"> --}}
+                <form action="{{ auth()->user()->role === 'admin' ? url('/equipos') : url('/mis_equipos') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="form-group row">
                         <div class="col-md-4">

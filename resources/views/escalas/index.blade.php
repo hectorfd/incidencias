@@ -8,10 +8,8 @@
                     <h3 class="mb-0">Incidencias</h3>
                 </div>
                 <div class="col text-right">
-                    <a href="{{url('/incidencias/create')}}" class="btn btn-sm btn-primary">Nueva Incidencia</a>
+                    <a href="{{url('/escalas/create')}}" class="btn btn-sm btn-primary">Nueva Escala</a>
                 </div>
-               
-                
             </div>
         </div>
         <div class="card-body">
@@ -23,43 +21,47 @@
             @endif
         </div>
         <div class="table-responsive">
-            <!-- Projects table -->
+            
             <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                     <tr>
+                        <th scope="col">Proceso</th>
                         <th scope="col">Ticket</th>
-                        <th scope="col" class="d-none d-lg-table-cell">Problema</th>
-                        
-                        <th scope="col" class="d-none d-md-table-cell">Garantia</th>
+                        <th scope="col" class="d-none d-lg-table-cell">Descipcion</th>
                         <th scope="col" class="d-none d-md-table-cell">Estado</th>
                        
-                        <th scope="col" class="d-none d-md-table-cell">Cliente</th>
-                        <th scope="col" class="d-none d-lg-table-cell">Cactegoria</th>
+                        <th scope="col" class="d-none d-md-table-cell">Precio</th>
+                        
+                        <th scope="col" class="d-none d-md-table-cell">Fecha inicio</th>
                         <th scope="col">Opciones</th>
                         
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($incidents as $incidencia)
+                    @foreach ($escalas as $escala)
                     <tr>
                       
-                        <td>{{$incidencia->ticket}}</td>
-                        <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->problem}}</td>
+                        <td>{{$escala->nombre}}</td>
+                        <td>{{ $escala->incidencia->ticket }}</td>
+                        <td scope="row" class="d-none d-lg-table-cell">{{$escala->description}}</td>
+                        <td scope="row" class="d-none d-lg-table-cell">{{$escala->status}}</td>
+                        <td scope="row" class="d-none d-lg-table-cell">{{$escala->precio}}</td>
+                        <td scope="row" class="d-none d-lg-table-cell">{{$escala->hora_inicio}}</td>
                         
                         
-                        <th scope="row" class="d-none d-md-table-cell {{$incidencia->garantia == 'Con Garantía' ? 'badge badge-success' : ($incidencia->garantia == 'Sin Garantía' ? 'badge badge-warning' : 'badge badge-light')}}">{{$incidencia->garantia}}</th>
+                        {{-- <th scope="row" class="d-none d-md-table-cell {{$incidencia->garantia == 'Con Garantía' ? 'badge badge-success' : ($incidencia->garantia == 'Sin Garantía' ? 'badge badge-warning' : 'badge badge-light')}}">{{$incidencia->garantia}}</th>
 
                         <td scope="row" class="d-none d-md-table-cell">{{$incidencia->status}}</td>
                         
                         <td scope="row" class="d-none d-md-table-cell">{{$incidencia->cliente->name}}</td>
                         
-                        <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->categoria->category}}</td>
+                        <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->categoria->category}}</td> --}}
 
                         <td>
-                            <form action="{{url('/incidencias/'.$incidencia->id)}}" method="POST">
+                            <form action="{{url('/escalas/'.$escala->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{url('/incidencias/'.$incidencia->id.'/edit')}}" class="btn btn-sm btn-outline-info">Editar</a>
+                                <a href="{{url('/escalas/'.$escala->id.'/edit')}}" class="btn btn-sm btn-outline-info">Editar</a>
                                 <button type="submit" href="" class="btn btn-sm btn-danger">Eliminar</button>
                             </form>
                         </td>

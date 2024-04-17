@@ -42,12 +42,10 @@
         <i class="fas fas fa-paste text-pink"></i> Categoria
       </a>
     </li>
-    
-   
    
     <li class="nav-item pb-2 {{ Request::is('equipos') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('equipos') ? 'active' : '' }}" href="{{ url('/equipos') }}">
-        <i class="fas fa-wrench text-ligth"></i> Equipos
+        <i class="fas fa-desktop text-ligth"></i> Equipos
       </a>
     </li>
 
@@ -61,7 +59,7 @@
 
     <li class="nav-item pb-2 {{ Request::is('mis_equipos') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('mis_equipos') ? 'active' : '' }}" href="{{ url('/mis_equipos') }}">
-        <i class="fas fa-wrench text-ligth"></i> Equipos
+        <i class="fas fa-desktop text-ligth"></i> Equipos
       </a>
     </li>
     
@@ -72,7 +70,7 @@
     </li>
     <li class="nav-item pb-2 {{ Request::is('escalas') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('escalas') ? 'active' : '' }}" href="{{ url('/escalas') }}">
-        <i class="fas fa-bed text-danger"></i> Escalas
+        <i class="fas fa-paste text-danger"></i> Escalas
       </a>
     </li>
     <li class="nav-item pb-2 {{ Request::is('horarioVista') ? 'active' : '' }}">
@@ -89,7 +87,7 @@
     </li>
     <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
       <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
-        <i class="ni ni-calendar-grid-58 text-primary"></i> Mis Equipos
+        <i class="fas fa-desktop text-primary"></i> Mis Equipos
       </a>
     </li>
     {{-- <li class="nav-item pb-2 {{ Request::is('incidencias') ? 'active' : '' }}">

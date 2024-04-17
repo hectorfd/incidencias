@@ -7,8 +7,19 @@
                 <div class="col">
                     <h3 class="mb-0">Equipos</h3>
                 </div>
-                <div class="col text-right">
+                {{-- <div class="col text-right">
                     <a href="{{url('/equipos/create')}}" class="btn btn-sm btn-primary">Nuevo Equipo</a>
+                </div> --}}
+                <div class="col text-right">
+                    @if(auth()->user()->role === 'admin')
+                        <a href="{{ url('/equipos/create') }}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-chevron-rigth"></i> Nuevo Equipo
+                        </a>
+                    @elseif(auth()->user()->role === 'empleado')
+                        <a href="{{ url('/mis_equipos/create') }}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-chevron-rigth"></i> Nuevo Equipo
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
