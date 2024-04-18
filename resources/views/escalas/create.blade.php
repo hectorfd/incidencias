@@ -104,8 +104,8 @@
                             <option value="Mantenimiento" data-precio="40">Mantenimiento</option>
                             <option value="Instalacion" data-precio="40">Instalación</option>
                             <option value="Actualizacion" data-precio="10">Actualización Antivirus</option>
-                            <option value="Facturar" data-precio="0">Facturar</option>
                             <option value="Especificar" data-precio="0">Especificar</option>
+                            <option value="Terminar" data-precio="0">Terminar</option>
                         </select>
                     </div>
                     
@@ -125,9 +125,17 @@
 
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                         <label for="estado">Estado</label>
                         <select name="estado" class="form-control">
+                            <option value="en progreso" {{ old('status') === 'en progreso' ? 'selected' : '' }}>En progreso</option>
+                            <option value="terminado" {{ old('status') === 'terminado' ? 'selected' : '' }}>Terminado</option>
+                            <option value="resuelto" {{ old('status') === 'resuelto' ? 'selected' : '' }}>Resuelto</option>
+                        </select>
+                    </div> --}}
+                    <div class="col-md-4">
+                        <label for="estado">Estado</label>
+                        <select name="estado" id="estado" class="form-control">
                             <option value="en progreso" {{ old('status') === 'en progreso' ? 'selected' : '' }}>En progreso</option>
                             <option value="terminado" {{ old('status') === 'terminado' ? 'selected' : '' }}>Terminado</option>
                             <option value="resuelto" {{ old('status') === 'resuelto' ? 'selected' : '' }}>Resuelto</option>

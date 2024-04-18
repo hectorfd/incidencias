@@ -10,6 +10,18 @@ class Incidencias extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ticket',
+        'problem',
+        'description',
+        'numero_boleta',
+        'fecha_boleta',
+        'status', 
+        'empleado_id',
+        'cliente_id',
+        'categoria_id',
+    ];
+
     public function empleado()
     {
         return $this->belongsTo(User::class, 'empleado_id');
@@ -23,5 +35,12 @@ class Incidencias extends Model
     {
         return $this->belongsTo(Category::class, 'categoria_id');
     }
+
+    public function escalas()
+    {
+        return $this->hasMany(Escala::class);
+    }
+
+   
 
 }

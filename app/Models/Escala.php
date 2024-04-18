@@ -22,4 +22,19 @@ class Escala extends Model
     {
         return $this->belongsTo(Incidencias::class);
     }
+
+    
+    // protected static function boot()
+    // {
+    //     parent::boot();
+    
+    //     static::saved(function ($escala) {
+            
+    //         if ($escala->incidencia->status === 'resuelto') {
+                
+    //             $escala->incidencia->update(['status' => 'resuelto']);
+    //         }
+    //     });
+    // }
+    
 }

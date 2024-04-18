@@ -8,7 +8,7 @@
                     <h3 class="mb-0">Nueva Incidencia</h3>
                 </div>
                 <div class="col text-right">
-                    <a href="{{url('/mis_incidencias')}}" class="btn btn-sm btn-success">
+                    <a href="{{url('/incidencias')}}" class="btn btn-sm btn-success">
                         <i class="fas fa-chevron-left"></i>
                         Regresar</a>
                 </div>

@@ -207,6 +207,19 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var nombreSelect = document.getElementById("nombre");
+            var estadoSelect = document.getElementById("estado");
+
+            nombreSelect.addEventListener("change", function() {
+                if (nombreSelect.value === "Terminar") {
+                    estadoSelect.value = "resuelto";
+                }
+            });
+        });
+    </script>
     
 
 </body>

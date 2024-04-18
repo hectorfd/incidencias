@@ -53,7 +53,14 @@ class EscalaController extends Controller
         $escala->precio = $request->precio; 
         
         
-        $escala->save();        
+        $escala->save(); 
+        if ($request->nombre === 'Terminar' && $request->estado === 'resuelto') {
+            
+            $incidencia = $escala->incidencia;
+    
+            
+            $incidencia->update(['status' => 'resuelto']);
+        }       
         return redirect('/escalas')->with('success', '¡La escala se ha creado correctamente!');
     }
 
@@ -70,21 +77,55 @@ class EscalaController extends Controller
 
    
 
+    // public function updateStatus(Request $request, Escala $escala)
+    // {
+    //     $request->validate([
+    //         'status' => 'required|in:en progreso,terminado,resuelto',
+    //     ]);
+    
+    //     $escala->status = $request->status;
+    //     if ($request->status === 'terminado' || $request->status === 'resuelto') {
+    //         $escala->hora_fin = Carbon::now(); 
+    //     }
+    //     $escala->save();
+    
+    //     return redirect('/escalas')->with('success', 'Estado actualizado exitosamente');
+    // }
+
     public function updateStatus(Request $request, Escala $escala)
     {
         $request->validate([
             'status' => 'required|in:en progreso,terminado,resuelto',
         ]);
-    
+
         $escala->status = $request->status;
         if ($request->status === 'terminado' || $request->status === 'resuelto') {
             $escala->hora_fin = Carbon::now(); 
         }
         $escala->save();
-    
+
+        
+        $incidencia = $escala->incidencia;
+
+       
+        $atLeastOneResolved = $incidencia->escalas->contains('status', 'resuelto');
+
+        
+        if ($atLeastOneResolved) {
+            $incidencia->update(['status' => 'resuelto']);
+        }
+
         return redirect('/escalas')->with('success', 'Estado actualizado exitosamente');
     }
+
     
+    public function destroy(Escala $escala)
+    {
+        $escala->delete();
+
+        return redirect('/escalas')->with('success', '¡La escala se ha eliminado correctamente!');
+    }
+
 
 
 }
