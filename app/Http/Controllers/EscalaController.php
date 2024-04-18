@@ -32,6 +32,7 @@ class EscalaController extends Controller
         
         $request->validate([
             'ticket' => 'required|exists:incidencias,id',
+            
             'equipo' => 'required|exists:devices,id',
             'empleado' => 'required|exists:users,id',
             'nombre' => 'required',
@@ -39,7 +40,7 @@ class EscalaController extends Controller
             'estado' => 'required|in:en progreso,terminado,resuelto',
             'precio' => 'required|numeric',
         ]);
-
+        
 
         $escala = new Escala();
         $escala->incidencia_id = $request->ticket;

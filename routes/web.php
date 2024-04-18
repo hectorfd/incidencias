@@ -96,6 +96,7 @@ Route::middleware(['auth', 'empleado'])->group(function () {
 Route::middleware(['auth', 'cliente'])->group(function () {
     Route::get('/mis_incidencias', [App\Http\Controllers\Employee\IncidenciasController::class, 'index2']);
     Route::get('/mis_incidencias/{id}', [App\Http\Controllers\Employee\IncidenciasController::class, 'show']);
+    Route::get('/mis_equipos2', [App\Http\Controllers\DeviceController::class, 'index2']);
 });
 
 

@@ -29,14 +29,39 @@
                 @csrf
                 <div class="form-group row">
                     
-                    <div class="col-md-8">
+                    {{-- <div class="col-md-8">
                         <label for="ticket">Incidencia</label>
                         <select name="ticket" class="form-control">
                             @foreach($incidencias as $incidencia)
                                 <option value="{{ $incidencia->id }}">{{ $incidencia->ticket }}|{{$incidencia->cliente->name}}|{{$incidencia->problem}}</option>
                             @endforeach
                         </select>
+                    </div> --}}
+                    {{-- <div class="col-md-8">
+                        <label for="ticket">Incidencia</label>
+                        <select name="ticket" class="form-control" > 
+                            @foreach($incidencias as $incidencia)
+                                <option value="{{ $incidencia->id }}" @if($incidencia->id == request()->input('incidencia_id')) selected @endif>
+                                    {{ $incidencia->ticket }} | {{ $incidencia->cliente->name }} | {{ $incidencia->problem }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div> --}}
+                    <div class="col-md-8">
+                        <label for="ticket">Incidencia</label>
+                        <select name="ticket" class="form-control"> 
+                            @foreach($incidencias as $incidencia)
+                                <option value="{{ $incidencia->id }}" @if($incidencia->id == request()->input('incidencia_id')) selected @endif>
+                                    {{ $incidencia->ticket }} | {{ $incidencia->cliente->name }} | {{ $incidencia->problem }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
+                    
+                    
+                    
+                    
+                    
                     
                     <div class="col-md-4">
                         <label for="equipo">Equipo</label>
@@ -55,9 +80,38 @@
                             <option value="{{ $empleado->id }}">{{ $empleado->name }} {{ $empleado->lastName }}</option>
                         </select>
                     </div>
-                    <div class="col-md-6">
+                    {{-- <div class="col-md-6">
                         <label for="nombre">Nombre proceso</label>
                         <input type="text" name="nombre" class="form-control" value="{{ old('nombre') }}"required>
+                    </div> --}}
+                    {{-- <div class="col-md-6">
+                        <label for="nombre">Nombre proceso</label>
+                        <select name="nombre" id="nombre" class="form-control" required>
+                            <option value="Diagnostico">Diagnóstico</option>
+                            <option value="Formateo">Formateo</option>
+                            <option value="Mantenimiento">Mantenimiento</option>
+                            <option value="Instalacion">Instalación</option>
+                            <option value="Actualizacion">Actualización</option>
+                            <option value="Actualizacion">Facturar</option>
+                            <option value="Especificar">Especificar</option>
+                        </select>
+                    </div> --}}
+                    <div class="col-md-6">
+                        <label for="nombre">Nombre proceso</label>
+                        <select name="nombre" id="nombre" class="form-control" required>
+                            <option value="Diagnostico" data-precio="10">Diagnóstico</option>
+                            <option value="Formateo" data-precio="50">Formateo</option>
+                            <option value="Mantenimiento" data-precio="40">Mantenimiento</option>
+                            <option value="Instalacion" data-precio="40">Instalación</option>
+                            <option value="Actualizacion" data-precio="10">Actualización Antivirus</option>
+                            <option value="Facturar" data-precio="0">Facturar</option>
+                            <option value="Especificar" data-precio="0">Especificar</option>
+                        </select>
+                    </div>
+                    
+                    <div id="especificar" class="col-md-6" style="display: none;">
+                        <label for="especificar">Especificar</label>
+                        <input type="text" name="especificar" class="form-control">
                     </div>
                 </div>
 
@@ -85,9 +139,13 @@
                         <input type="datetime-local" name="hora_inicio" class="form-control" value="{{ now('America/Lima')->format('Y-m-d\TH:i') }}" readonly>
                     </div>
                     
-                    <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                         <label for="precio">Precio</label>
                         <input type="number" step="0.01" name="precio" class="form-control" value="{{ old('precio') }}" required>
+                    </div> --}}
+                    <div class="col-md-4">
+                        <label for="precio">Precio</label>
+                        <input type="number" step="0.01" name="precio" id="precio" class="form-control" value="{{ old('precio',10) }}" required>
                     </div>
                     
                     

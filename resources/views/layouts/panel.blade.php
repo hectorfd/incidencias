@@ -176,6 +176,37 @@
             reader.readAsDataURL(input.files[0]);
         }
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var select = document.getElementById("nombre");
+            var especificarDiv = document.getElementById("especificar");
+            var especificarInput = document.querySelector("#especificar input");
+
+            select.addEventListener("change", function() {
+                if (select.value === "Especificar") {
+                    especificarDiv.style.display = "block";
+                    especificarInput.setAttribute("required", "required");
+                } else {
+                    especificarDiv.style.display = "none";
+                    especificarInput.removeAttribute("required");
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var nombreSelect = document.getElementById("nombre");
+            var precioInput = document.getElementById("precio");
+
+            nombreSelect.addEventListener("change", function() {
+                var selectedOption = nombreSelect.options[nombreSelect.selectedIndex];
+                var precio = selectedOption.getAttribute("data-precio");
+                precioInput.value = precio;
+            });
+        });
+    </script>
     
 
 </body>

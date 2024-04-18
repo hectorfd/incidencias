@@ -36,6 +36,7 @@
                         <th scope="col" class="d-none d-md-table-cell">Cliente</th>
                         <th scope="col" class="d-none d-lg-table-cell">Cactegoria</th>
                         <th scope="col">Opciones</th>
+                        <th scope="col">Escalas</th>
                         
                     </tr>
                 </thead>
@@ -56,12 +57,25 @@
                         <td scope="row" class="d-none d-lg-table-cell">{{$incidencia->categoria->category}}</td>
 
                         <td>
-                            <form action="{{url('/incidencias/'.$incidencia->id)}}" method="POST">
+                            <form action="{{ url('/incidencias/'.$incidencia->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{url('/incidencias/'.$incidencia->id.'/edit')}}" class="btn btn-sm btn-outline-info">Editar</a>
-                                <button type="submit" href="" class="btn btn-sm btn-danger">Eliminar</button>
+                                <a href="{{ url('/incidencias/'.$incidencia->id.'/edit') }}" class="btn btn-sm btn-outline-info">Editar</a>
+                                <button type="submit" class="btn btn-sm btn-danger" name="action" value="delete_incidencia">Eliminar</button>
                             </form>
+                            
+                            
+                        </td>
+                            <td> 
+                            <form action="{{ url('/escalas/create') }}" method="GET">
+                                @csrf
+                                <input type="hidden" name="incidencia_id" value="{{ $incidencia->id }}">
+                                <button type="submit" class="btn btn-sm btn-outline-success">Escalar</button>
+                            </form>
+                            
+                            
+                            
+                            
                         </td>
                     </tr>
                     @endforeach

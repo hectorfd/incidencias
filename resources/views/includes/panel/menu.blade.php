@@ -85,8 +85,8 @@
         <i class="ni ni-calendar-grid-58 text-primary"></i> Mis incidencias
       </a>
     </li>
-    <li class="nav-item pb-2 {{ Request::is('horario') ? 'active' : '' }}">
-      <a class="nav-link h {{ Request::is('horario') ? 'active' : '' }}" href="{{ url('/horario') }}">
+    <li class="nav-item pb-2 {{ Request::is('mis_equipos2') ? 'active' : '' }}">
+      <a class="nav-link h {{ Request::is('mis_equipos2') ? 'active' : '' }}" href="{{ url('/mis_equipos2') }}">
         <i class="fas fa-desktop text-primary"></i> Mis Equipos
       </a>
     </li>

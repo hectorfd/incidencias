@@ -17,6 +17,15 @@ class DeviceController extends Controller
         return view('devices.index',compact('devices'));
     }
 
+    public function index2(){
+        
+        $user = Auth::user();
+        $clientes = User::where('role', 'cliente')->get();
+        $devices = Device::all();
+        return view('devices.index', compact('devices'));
+    }
+    
+
     //crear
     public function create()
     {
